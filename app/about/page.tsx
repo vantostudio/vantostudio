@@ -1,0 +1,90 @@
+import type { Metadata } from "next";
+import { PageShell } from "@/components/layout/PageShell";
+import { PageHero } from "@/components/ui/PageHero";
+import { Container } from "@/components/ui/Layout";
+import { ProcessVisual } from "@/components/about/ProcessVisual";
+import { buildSteps, values } from "@/data/about";
+
+export const metadata: Metadata = {
+  title: "About",
+  description: "Meet Alex Morgan, the independent designer and developer behind Vanto in Kenya.",
+};
+
+export default function AboutPage() {
+  return (
+    <PageShell footerProps={{ headline: "Something you’re proud to share." }}>
+      <PageHero
+        eyebrow="ABOUT"
+        note="ALEX MORGAN — KENYA"
+        lines={[<>Independent by design.</>, <>Close to the <em className="text-accent">work.</em></>]}
+        width="15ch"
+      />
+      <section className="pb-[clamp(72px,10vw,140px)]">
+        <Container className="grid items-start gap-[clamp(36px,6vw,88px)] lg:grid-cols-[.52fr_1.48fr]">
+          <aside data-fade className="border-y border-paper/14 py-6">
+            <p className="m-0 font-mono text-[10px] tracking-[0.13em] text-paper/42">STUDIO DETAILS</p>
+            <dl className="mt-7 grid gap-5 text-sm sm:grid-cols-3 lg:grid-cols-1">
+              <div><dt className="font-mono text-[10px] tracking-[0.1em] text-accent">FOUNDER</dt><dd className="mt-1.5 text-paper/72">Alex Morgan</dd></div>
+              <div><dt className="font-mono text-[10px] tracking-[0.1em] text-accent">DISCIPLINES</dt><dd className="mt-1.5 text-paper/72">Strategy, design, development</dd></div>
+              <div><dt className="font-mono text-[10px] tracking-[0.1em] text-accent">LOCATION</dt><dd className="mt-1.5 text-paper/72">Kenya · Working worldwide</dd></div>
+            </dl>
+          </aside>
+          <div data-fade className="max-w-[760px]">
+            <p className="mb-5 font-mono text-xs tracking-[0.12em] text-accent">ALEX MORGAN — FOUNDER, DESIGNER & DEVELOPER</p>
+            <p className="m-0 max-w-[24ch] font-serif text-[clamp(28px,3.6vw,50px)] leading-[1.18] tracking-[-0.02em]">
+              Vanto is an independent web design and development studio based in Kenya.
+            </p>
+            <p className="mt-5 text-[clamp(15px,1.3vw,18px)] leading-[1.7] text-paper/70">
+              I work with professional firms, service businesses, and growing brands that need a website to communicate their value with more clarity and confidence. Every project brings strategy, design, and development into one focused process.
+            </p>
+            <p className="mt-5 text-[clamp(15px,1.3vw,18px)] leading-[1.7] text-paper/70">
+              You work directly with me throughout. That keeps communication clear, decisions close to the work, and the finished experience consistent from the first idea to the final build.
+            </p>
+          </div>
+        </Container>
+      </section>
+      <section className="bg-paper py-[clamp(72px,10vw,140px)] text-ink">
+        <Container>
+          <p data-fade className="mb-[clamp(32px,4vw,52px)] font-mono text-xs tracking-[0.14em] text-accent">( HOW I WORK )</p>
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(min(240px,100%),1fr))] gap-[clamp(24px,3vw,44px)]">
+            {values.map(([number, title, description]) => (
+              <article data-fade key={number} className="flex flex-col gap-3 border-t border-paper-line pt-[22px]">
+                <span className="font-mono text-xs text-accent">{number}</span>
+                <h3 className="m-0 font-serif text-[clamp(22px,2.2vw,30px)] tracking-[-0.01em]">{title}</h3>
+                <p className="m-0 text-[15px] leading-[1.6] text-[#4a463c]">{description}</p>
+              </article>
+            ))}
+          </div>
+        </Container>
+      </section>
+      <section className="border-t border-paper-line bg-paper py-[clamp(64px,9vw,130px)] text-ink">
+        <Container>
+          <div data-fade className="mb-[clamp(40px,5vw,64px)] max-w-[56ch]">
+            <p className="mb-[18px] font-mono text-xs tracking-[0.14em] text-accent">( BEHIND THE BUILD )</p>
+            <h2 className="m-0 font-serif text-[clamp(30px,4.4vw,60px)] tracking-[-0.02em]">Every project moves through four practical stages.</h2>
+          </div>
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(min(220px,100%),1fr))] gap-[clamp(18px,2.5vw,28px)]">
+            {buildSteps.map(([number, slot, title, description]) => (
+              <article data-fade key={number} className="flex flex-col gap-3.5">
+                <div className="aspect-[4/3] overflow-hidden rounded-2xl border border-paper-line bg-[#e7ddc9]">
+                  <ProcessVisual step={slot} />
+                </div>
+                <span className="font-mono text-[11px] tracking-[0.08em] text-accent">{number}</span>
+                <h3 className="m-0 text-[19px] font-semibold">{title}</h3>
+                <p className="m-0 text-sm leading-[1.6] text-[#4a463c]">{description}</p>
+              </article>
+            ))}
+          </div>
+        </Container>
+      </section>
+      <section className="bg-ink py-[clamp(80px,12vw,170px)] text-center text-paper">
+        <div className="mx-auto max-w-[1000px] px-[clamp(20px,5vw,56px)]">
+          <p data-fade className="mb-7 font-mono text-xs tracking-[0.14em] text-sage">( AFTER LAUNCH )</p>
+          <p data-fade className="m-0 font-serif text-[clamp(26px,4vw,54px)] leading-[1.22] tracking-[-0.015em] text-balance">
+            The goal is a website you understand, own, and can use confidently—not a black box that becomes somebody else’s problem after launch.
+          </p>
+        </div>
+      </section>
+    </PageShell>
+  );
+}
