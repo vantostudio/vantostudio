@@ -45,16 +45,16 @@ export const projectFit = [
 ] as const;
 
 /**
- * Starting points, not fixed prices — every project is still quoted.
- * Calibrated to the Kenyan market: above the template-and-freelancer tier so
- * the wrong enquiries filter themselves out, below agency rates so an SME can
- * still see itself here.
+ * Only the entry tier carries a number. That is where a figure does real work
+ * — it stops a poor-fit enquiry before it costs a call. The larger tiers vary
+ * too much for a floor to be honest, so they stay quote-based.
+ * Priced for the Kenyan market, above the template-and-freelancer tier.
  */
 export const plans = [
   {
     name: "Focused website",
     scope: "focused",
-    price: "From KES 45,000",
+    price: "From KES 25,000",
     who: "For one clear offer, audience, and action.",
     features: ["One considered scrolling page", "Content structure and custom design", "Lead form or WhatsApp handoff", "Responsive build and launch"],
     badge: null,
@@ -64,7 +64,7 @@ export const plans = [
   {
     name: "Business website",
     scope: "business",
-    price: "From KES 120,000",
+    price: "Project-based quote",
     who: "For a business that needs a fuller client journey.",
     features: ["Strategically structured pages", "Responsive design system", "Content guidance and SEO foundations", "Testing, launch, and handover"],
     badge: "CORE OFFER",
@@ -74,7 +74,7 @@ export const plans = [
   {
     name: "Commerce & custom",
     scope: "commerce",
-    price: "From KES 300,000",
+    price: "Custom project quote",
     who: "For selling, booking, membership, or tailored functionality.",
     features: ["Customer and admin journeys", "Payments or third-party integrations", "Scalable content and product structure", "Testing, launch, and handover"],
     badge: "ADVANCED",

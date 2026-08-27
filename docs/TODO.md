@@ -97,24 +97,31 @@ they reach your calendar.
 
 **Set on 27 August 2026** in `data/services.ts`:
 
-| Tier | Floor | ~USD |
-| --- | --- | --- |
-| Focused website | From KES 45,000 | ~$350 |
-| Business website | From KES 120,000 | ~$930 |
-| Commerce & custom | From KES 300,000 | ~$2,300 |
+| Tier | Price shown |
+| --- | --- |
+| Focused website | From KES 25,000 |
+| Business website | Project-based quote |
+| Commerce & custom | Custom project quote |
 
-Calibrated to the Kenyan market, not US rates: above the template-and-freelancer
-tier (KES 15–25k) so the wrong enquiries filter themselves out, below Nairobi
-agency rates so an SME can still see itself on the page.
+**Only the entry tier carries a number**, deliberately. That is where a figure
+does real work — it stops a poor-fit enquiry before it costs a call. The larger
+two vary too much for a floor to be honest, so they stay quote-based, which is
+also what protects your room to price a big project properly.
 
 Revisit if either happens:
-- More than about one enquiry in three is below the floor → the floor is too low.
+- More than about one enquiry in three is below the floor → raise it.
 - Enquiries dry up entirely → too high, or the work shown does not yet justify it.
 
-If you want a genuinely cheap entry point later, make it a **separate product**
-— one page, fixed scope, fixed turnaround, one revision round — rather than
-lowering this floor. That way the cheap thing has boundaries instead of dragging
-the whole price anchor down.
+A note for later: KES 25,000 is close to the template-and-freelancer tier
+(roughly KES 15–25k). It will bring volume, and volume is the thing a solo
+studio runs out of capacity for first — client management does not get faster
+just because the build does. If you find yourself busy but not better off, the
+floor is the first thing to move.
+
+If you want a cheaper entry point than this, make it a **separate product** —
+one page, fixed scope, fixed turnaround, one revision round — rather than
+lowering this floor further. That way the cheap thing has boundaries instead of
+dragging the whole anchor down.
 
 Consider showing a USD equivalent alongside KES once international enquiries
 start arriving; the site says "working worldwide" but prices in KES only.
