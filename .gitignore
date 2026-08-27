@@ -6,3 +6,7 @@ out
 .env*
 !.env.example
 tsconfig.tsbuildinfo
+
+# capture tool scratch output
+tools/out
+tools/node_modules

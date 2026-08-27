@@ -70,5 +70,5 @@ export const brieshon: Project = {
     },
   ],
   outcome:
-    "A live, founder-owned marketplace foundation that demonstrates Vanto’s ability to think beyond pages and design a connected product for buyers, sellers, and day-to-day commerce operations.",
+    "A live two-sided marketplace running in production: seller onboarding and console, buyer catalogue and checkout, order tracking, returns, and the marketplace terms that hold it together. Vanto owns and operates it, which means the commerce decisions here were made with real consequences attached rather than in a case study.",
 };

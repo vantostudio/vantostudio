@@ -47,6 +47,12 @@ export default async function CaseStudyPage({ params }: Props) {
                 {project.linkLabel} ↗
               </a>
             </div>
+            {project.whyBuilt && (
+              <div data-hero-fade className="mt-8 max-w-[70ch] rounded-2xl border border-paper/12 bg-ink-soft/60 p-5">
+                <p className="m-0 font-mono text-[10px] tracking-[0.13em] text-sage">( WHY I BUILT THIS )</p>
+                <p className="mt-2.5 mb-0 text-[15px] leading-[1.65] text-paper/72">{project.whyBuilt}</p>
+              </div>
+            )}
             {project.disclaimer && (
               <p data-hero-fade className="mt-6 max-w-[70ch] border-l-2 border-accent pl-4 text-sm leading-[1.6] text-paper/60">
                 {project.disclaimer}
@@ -69,7 +75,7 @@ export default async function CaseStudyPage({ params }: Props) {
         <section className="pb-[clamp(48px,7vw,96px)]">
           <Container>
             <div data-work>
-              <BrowserFrame domain={project.domain} className="rounded-[22px] shadow-[0_40px_90px_rgba(0,0,0,.4)]">
+              <BrowserFrame domain={project.domain}>
                 <div className="aspect-[16/9.2] overflow-hidden">
                   <ProjectMotion video={project.video} poster={project.image} alt={project.imageAlt} />
                 </div>
@@ -133,7 +139,7 @@ export default async function CaseStudyPage({ params }: Props) {
               <h2 data-fade className="m-0 max-w-[15ch] font-serif text-[clamp(40px,7vw,104px)] leading-[0.96] tracking-[-0.03em] text-balance">Have a problem worth designing around?</h2>
               <Link data-fade data-magnetic data-cursor="Start" href="/contact" className="rounded-full bg-accent px-[34px] py-[17px] text-base font-semibold text-ink">Start a project</Link>
             </div>
-            <div className="flex flex-wrap justify-between gap-4 border-t border-paper/12 py-6 font-mono text-xs text-paper-muted"><span>© 2026 VANTO</span><span>KENYA — WORKING WORLDWIDE</span></div>
+            <div className="flex flex-wrap justify-between gap-4 border-t border-paper/12 py-6 font-mono text-xs text-paper-muted"><span>© 2026 VANTO</span><span>WORKING WORLDWIDE</span></div>
           </Container>
         </footer>
       </div>

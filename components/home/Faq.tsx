@@ -4,7 +4,8 @@ import { useState } from "react";
 import { faqs } from "@/data/home";
 
 export function Faq() {
-  const [open, setOpen] = useState(0);
+  // -1 = every question collapsed; the section opens closed by default.
+  const [open, setOpen] = useState(-1);
 
   return (
     <div className="border-t border-paper-line">

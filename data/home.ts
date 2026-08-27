@@ -52,19 +52,11 @@ export const faqs = [
     "A focused website can take two to four weeks; a larger or more integrated website usually takes four to eight. The schedule depends on content readiness, functionality, and feedback—not an arbitrary deadline. Your proposal includes a clear timeline.",
   ],
   [
-    "What do you need from us?",
-    "You bring the business context, priorities, and access to the people who can make decisions. Vanto helps shape the structure and content direction, keeps responsibilities clear, and tells you exactly what is needed at each stage.",
-  ],
-  [
     "Can you help with the words and images?",
     "Yes. Page structure, messaging priorities, and content direction are part of the process. Full copywriting, photography, illustration, or video production can be added to the scope when needed. If you already have material, Vanto helps decide what to keep, improve, or replace.",
   ],
   [
     "Who owns the website and domain?",
     "You do. Your domain, website, content, and project assets remain yours. The launch and handover process is designed to avoid platform lock-in and leave you with a clear operating setup.",
-  ],
-  [
-    "How are projects priced?",
-    "Every engagement is quoted around its goals, content, functionality, and timing rather than forced into a rigid package. After an initial conversation, you receive a written proposal covering responsibilities, timeline, deliverables, and investment. Essential work and optional additions can be separated or phased where that makes sense.",
   ],
 ] as const;

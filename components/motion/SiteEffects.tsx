@@ -13,6 +13,8 @@ export function SiteEffects() {
     gsap.registerPlugin(ScrollTrigger);
     const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
     const cleanups: Array<() => void> = [];
+    const matchMedia_ = gsap.matchMedia();
+    cleanups.push(() => matchMedia_.revert());
     const context = gsap.context(() => {
       if (!reduced) {
         const heroLines = gsap.utils.toArray<HTMLElement>("[data-line-inner]");
@@ -80,11 +82,14 @@ export function SiteEffects() {
         if (mark) {
           gsap.fromTo(mark, { x: -40 }, { x: 40, ease: "none", scrollTrigger: { trigger: mark, start: "top bottom", end: "bottom top", scrub: true } });
         }
-        const section = document.querySelector<HTMLElement>("[data-pin-section]");
-        const viewport = document.querySelector<HTMLElement>("[data-pin-viewport]");
-        const track = document.querySelector<HTMLElement>("[data-pin-track]");
-        if (section && viewport && track && innerWidth > 720) {
-          const distance = () => Math.max(0, track.scrollWidth - viewport.clientWidth + innerWidth * 0.1);
+        // Desktop only: the steps pin and pan horizontally. Below 768px the track
+        // is a native swipe carousel (see HomeProcess), so GSAP must leave it alone.
+        matchMedia_.add("(min-width: 768px)", () => {
+          const section = document.querySelector<HTMLElement>("[data-pin-section]");
+          const window_ = document.querySelector<HTMLElement>("[data-pin-window]");
+          const track = document.querySelector<HTMLElement>("[data-pin-track]");
+          if (!section || !window_ || !track) return;
+          const distance = () => Math.max(0, track.scrollWidth - window_.clientWidth + innerWidth * 0.1);
           gsap.to(track, {
             x: () => -distance(),
             ease: "none",
@@ -98,7 +103,8 @@ export function SiteEffects() {
               anticipatePin: 1,
             },
           });
-        }
+          return () => gsap.set(track, { clearProps: "x" });
+        });
       }
     }, document.body);
 

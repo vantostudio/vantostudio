@@ -17,7 +17,7 @@ export function HomeHero() {
         <Container className="relative z-10">
           <div data-hero-fade className="mb-[clamp(28px,5vh,56px)] flex flex-wrap justify-between gap-4 font-mono text-xs tracking-[0.08em] text-paper/50">
             <span>INDEPENDENT DESIGN & DEVELOPMENT STUDIO</span>
-            <span>KENYA → WORLDWIDE</span>
+            <span>WORKING WORLDWIDE</span>
             <span className="text-[#d39150]">STRATEGY · DESIGN · DEVELOPMENT</span>
           </div>
           <h1 className="m-0 font-serif text-[clamp(48px,10.5vw,168px)] leading-[0.92] tracking-[-0.035em]">

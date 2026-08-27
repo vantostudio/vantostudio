@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Layout";
+import { mailto } from "@/data/site";
 
 export type FooterProps = {
   eyebrow?: string;
@@ -37,15 +38,16 @@ export function Footer({
             <Link href="/work" className="text-paper/80 hover:text-paper">Work</Link>
             <Link href="/services" className="text-paper/80 hover:text-paper">Services</Link>
             <Link href="/about" className="text-paper/80 hover:text-paper">About</Link>
+            <Link href="/privacy" className="text-paper/80 hover:text-paper">Privacy</Link>
           </div>
           <div className="flex flex-col gap-3">
             <span className="font-mono text-[11px] tracking-[0.12em] text-paper-muted">REACH ME</span>
-            <Link href="mailto:justmogen@gmail.com" className="text-paper/80 hover:text-paper">Email</Link>
+            <Link href={mailto} className="text-paper/80 hover:text-paper">Email</Link>
             <Link href="/contact" className="text-paper/80 hover:text-paper">Project form</Link>
           </div>
           <div className="flex max-w-[34ch] flex-col gap-3">
             <span className="font-mono text-[11px] tracking-[0.12em] text-paper-muted">STUDIO</span>
-            <p className="m-0 text-[15px] leading-6 text-paper/70">An independent web design and development studio led by Alex Morgan in Kenya, working worldwide.</p>
+            <p className="m-0 text-[15px] leading-6 text-paper/70">An independent web design and development studio led by Alex Morgan.</p>
           </div>
         </div>
         <div data-bigmark className="select-none whitespace-nowrap pt-[clamp(20px,3vw,40px)] font-serif text-[clamp(64px,20vw,300px)] leading-[0.8] tracking-[-0.04em] text-paper/6" aria-hidden="true">
@@ -53,7 +55,7 @@ export function Footer({
         </div>
         <div className="flex flex-wrap justify-between gap-4 border-t border-paper/12 py-6 font-mono text-xs text-paper-muted">
           <span>© 2026 VANTO</span>
-          <span>KENYA — WORKING WORLDWIDE</span>
+          <span>WORKING WORLDWIDE</span>
         </div>
       </Container>
     </footer>

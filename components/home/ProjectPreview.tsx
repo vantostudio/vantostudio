@@ -18,7 +18,7 @@ export function ProjectPreview() {
             </h2>
           </div>
           <Link href="/work" data-cursor="View" className="border-b-[1.5px] border-accent pb-1 text-[15px] font-semibold text-accent">
-            View all four projects →
+            View all {projects.length} projects →
           </Link>
         </div>
 

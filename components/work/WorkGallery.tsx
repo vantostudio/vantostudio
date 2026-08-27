@@ -8,7 +8,7 @@ import { ProjectTile } from "./ProjectTile";
 
 type Filter = "All" | ProjectSector;
 
-const filters: Filter[] = ["All", "Commerce", "Lifestyle", "Legal"];
+const filters: Filter[] = ["All", "Creative", "Lifestyle", "Legal"];
 
 const groups: {
   label: string;

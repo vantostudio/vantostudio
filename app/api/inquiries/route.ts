@@ -1,4 +1,5 @@
 import { businessOptions, scopeOptions, timeOptions } from "@/data/contact";
+import { site } from "@/data/site";
 
 type Inquiry = {
   business: string;
@@ -74,7 +75,7 @@ export async function POST(request: Request) {
   if (inquiry.website) return Response.json({ ok: true });
 
   const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.CONTACT_TO_EMAIL ?? "justmogen@gmail.com";
+  const to = process.env.CONTACT_TO_EMAIL ?? site.email;
   const from = process.env.CONTACT_FROM_EMAIL;
   if (!apiKey || !from) {
     return Response.json({ error: "Email delivery is not configured." }, { status: 503 });

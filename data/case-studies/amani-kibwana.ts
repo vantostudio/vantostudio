@@ -8,8 +8,8 @@ export const amaniKibwana: Project = {
   status: "INDEPENDENT CONCEPT",
   kind: "concept",
   name: "Amani Kibwana",
-  domain: "kinetic-legal-wwci-steel.vercel.app",
-  href: "https://kinetic-legal-wwci-steel.vercel.app",
+  domain: "kinetic-legal.vercel.app",
+  href: "https://kinetic-legal.vercel.app",
   linkLabel: "View live concept",
   image: "/projects/kinetic-legal/home.webp",
   video: "/projects/kinetic-legal/preview.webm",
@@ -23,6 +23,8 @@ export const amaniKibwana: Project = {
   tagline: "Personal counsel with the structure of a serious practice.",
   intro:
     "Amani Kibwana explores a different legal-services proposition from a traditional firm: direct access to one senior advocate, framed for founders and growing companies that still expect structured, commercially aware counsel.",
+  whyBuilt:
+    "Independent professionals are routinely sold design borrowed from institutions three hundred times their size. I built this to argue the opposite case—that a solo advocate is better served by specificity and direct access—and to have something concrete to show the next one who asks.",
   disclaimer:
     "Independent concept project. The advocate, organisations, testimonials, metrics, and business claims shown in the prototype are illustrative—not client claims or measured outcomes.",
   meta: [
@@ -72,5 +74,5 @@ export const amaniKibwana: Project = {
     },
   ],
   outcome:
-    "A complete positioning and website concept demonstrating how an independent professional can communicate specialisation, personal access, and commercial confidence without imitating a large institution.",
+    "A complete practitioner site—services, practice areas, and a consultation booking route—built around one bet: that an independent advocate wins on specificity and direct access, not on looking like a bigger firm. The result is a template for solo professionals who are currently being sold institutional design they do not need.",
 };

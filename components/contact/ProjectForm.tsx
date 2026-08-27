@@ -1,6 +1,6 @@
 "use client";
 
-import { cloneElement, useRef, useState, type ReactElement } from "react";
+import { cloneElement, useEffect, useId, useRef, useState, type ReactElement } from "react";
 import {
   businessOptions,
   getRecommendation,
@@ -8,6 +8,7 @@ import {
   scopeOptions,
   timeOptions,
 } from "@/data/contact";
+import { site, whatsappLink } from "@/data/site";
 
 type Brief = {
   business: string;
@@ -18,41 +19,119 @@ type Brief = {
   message: string;
 };
 
-function Options({ options, value, onChange }: { options: readonly string[]; value: string; onChange: (value: string) => void }) {
+const STEPS = 4;
+const STORAGE_KEY = "vanto:brief";
+
+const emptyBrief: Brief = {
+  business: "",
+  timeline: "",
+  scope: "",
+  name: "",
+  contact: "",
+  message: "",
+};
+
+const stepTitles = [
+  "What kind of business is this for?",
+  "When would you like to launch?",
+  "What does the website need?",
+  "Where should I follow up?",
+];
+
+/**
+ * Native radios rather than buttons: a real radiogroup gives arrow-key
+ * navigation, single-choice semantics, and required validation for free.
+ * The input stays focusable (sr-only, not hidden) so focus rings still land.
+ */
+function Options({
+  name,
+  legend,
+  options,
+  value,
+  onChange,
+}: {
+  name: string;
+  legend: string;
+  options: readonly string[];
+  value: string;
+  onChange: (value: string) => void;
+}) {
   return (
-    <div className="flex flex-wrap gap-3">
-      {options.map((option) => (
-        <button
-          type="button"
-          data-cursor="Pick"
-          key={option}
-          onClick={() => onChange(option)}
-          className={`rounded-full border-[1.5px] px-[26px] py-[15px] text-[clamp(15px,1.5vw,18px)] font-medium transition ${
-            value === option ? "border-paper bg-paper text-ink" : "border-paper/22 bg-transparent text-paper/85"
-          }`}
-        >
-          {option}
-        </button>
-      ))}
-    </div>
+    <fieldset className="m-0 border-0 p-0">
+      <legend className="sr-only">{legend}</legend>
+      <div className="flex flex-wrap gap-3">
+        {options.map((option) => {
+          const active = value === option;
+          return (
+            <label
+              key={option}
+              data-cursor="Pick"
+              className={`cursor-pointer rounded-full border-[1.5px] px-[26px] py-[15px] text-[clamp(15px,1.5vw,18px)] font-medium transition has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-4 has-[:focus-visible]:outline-sage ${
+                active ? "border-paper bg-paper text-ink" : "border-paper/22 bg-transparent text-paper/85"
+              }`}
+            >
+              <input
+                type="radio"
+                name={name}
+                value={option}
+                checked={active}
+                required
+                onChange={() => onChange(option)}
+                className="sr-only"
+              />
+              {option}
+            </label>
+          );
+        })}
+      </div>
+    </fieldset>
   );
 }
 
 export function ProjectForm({ initialScope = "" }: { initialScope?: string }) {
-  const formRef = useRef<HTMLDivElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
+  const headingId = useId();
   const [step, setStep] = useState(0);
-  const [brief, setBrief] = useState<Brief>({
-    business: "",
-    timeline: "",
-    scope: initialScope,
-    name: "",
-    contact: "",
-    message: "",
-  });
+  const [brief, setBrief] = useState<Brief>({ ...emptyBrief, scope: initialScope });
+  const [restored, setRestored] = useState(false);
   const [honeypot, setHoneypot] = useState("");
   const [done, setDone] = useState<false | "submitted" | "whatsapp">(false);
   const [submitting, setSubmitting] = useState(false);
   const [sendError, setSendError] = useState("");
+
+  // Restore an in-progress brief. This has to run after mount rather than in a
+  // lazy initialiser: reading storage during render would make the client's
+  // first paint disagree with the server's and break hydration — which is
+  // precisely the case set-state-in-effect exists to allow.
+  /* eslint-disable react-hooks/set-state-in-effect */
+  useEffect(() => {
+    try {
+      const saved = sessionStorage.getItem(STORAGE_KEY);
+      if (!saved) return;
+      const parsed = JSON.parse(saved) as { brief?: Partial<Brief>; step?: number };
+      if (parsed.brief) {
+        setBrief((current) => ({ ...current, ...parsed.brief, scope: initialScope || parsed.brief?.scope || current.scope }));
+      }
+      if (typeof parsed.step === "number" && parsed.step >= 0 && parsed.step < STEPS) {
+        setStep(parsed.step);
+        setRestored(true);
+      }
+    } catch {
+      // Private mode or corrupt payload — start clean rather than fail.
+    }
+  }, [initialScope]);
+  /* eslint-enable react-hooks/set-state-in-effect */
+
+  // Persist on every change so a refresh mid-brief costs nothing.
+  useEffect(() => {
+    if (done) return;
+    try {
+      sessionStorage.setItem(STORAGE_KEY, JSON.stringify({ brief, step }));
+    } catch {
+      // Storage unavailable — persistence is a convenience, not a requirement.
+    }
+  }, [brief, step, done]);
+
   const recommendation = getRecommendation(brief.scope);
   const selectedScope = getScopeSelection(
     initialScope === "One focused page"
@@ -63,7 +142,7 @@ export function ProjectForm({ initialScope = "" }: { initialScope?: string }) {
           ? "commerce"
           : undefined,
   );
-  const valid = [brief.business, brief.timeline, brief.scope, brief.name && brief.contact][step];
+  const valid = Boolean([brief.business, brief.timeline, brief.scope, brief.name && brief.contact][step]);
   const update = (key: keyof Brief, value: string) => {
     setBrief((current) => ({ ...current, [key]: value }));
     setSendError("");
@@ -79,6 +158,13 @@ export function ProjectForm({ initialScope = "" }: { initialScope?: string }) {
     setStep(nextStep);
     scrollToForm();
   };
+  const clearStorage = () => {
+    try {
+      sessionStorage.removeItem(STORAGE_KEY);
+    } catch {
+      // Nothing to clean up if storage was never available.
+    }
+  };
   const summary = [["TYPE", brief.business], ["TIMELINE", brief.timeline], ["SCOPE", brief.scope]];
   const composeMessage = () =>
     [
@@ -93,14 +179,14 @@ export function ProjectForm({ initialScope = "" }: { initialScope?: string }) {
       brief.message ? `\nNotes: ${brief.message}` : "",
     ].join("\n");
   const openWhatsApp = () => {
-    const text = encodeURIComponent(composeMessage());
-    window.open(`https://wa.me/254708184850?text=${text}`, "_blank", "noopener,noreferrer");
+    window.open(whatsappLink(composeMessage()), "_blank", "noopener,noreferrer");
     setDone("whatsapp");
+    clearStorage();
     scrollToForm();
   };
   const openEmailApp = () => {
     const text = encodeURIComponent(composeMessage());
-    window.location.href = `mailto:justmogen@gmail.com?subject=${encodeURIComponent(`Project inquiry — ${brief.name}`)}&body=${text}`;
+    window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(`Project inquiry — ${brief.name}`)}&body=${text}`;
   };
   const submitBrief = async () => {
     setSubmitting(true);
@@ -109,14 +195,11 @@ export function ProjectForm({ initialScope = "" }: { initialScope?: string }) {
       const response = await fetch("/api/inquiries", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...brief,
-          likelyFit: recommendation.title,
-          website: honeypot,
-        }),
+        body: JSON.stringify({ ...brief, likelyFit: recommendation.title, website: honeypot }),
       });
       if (!response.ok) throw new Error("Delivery failed");
       setDone("submitted");
+      clearStorage();
       scrollToForm();
     } catch {
       setSendError("The form could not send just now. Continue on WhatsApp or open your email app instead.");
@@ -125,10 +208,18 @@ export function ProjectForm({ initialScope = "" }: { initialScope?: string }) {
     }
   };
 
+  // Enter anywhere in the form advances a step, or sends on the last one.
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!valid || submitting) return;
+    if (step < STEPS - 1) changeStep(step + 1);
+    else void submitBrief();
+  };
+
   if (done) {
     const submitted = done === "submitted";
     return (
-      <div ref={formRef} className="step-in flex scroll-mt-[110px] flex-col items-start gap-[22px]">
+      <div className="step-in flex scroll-mt-[110px] flex-col items-start gap-[22px]">
         <span data-check className="font-mono text-xs tracking-[0.12em] text-sage">
           {submitted ? "( BRIEF RECEIVED )" : "( ONE LAST STEP )"}
         </span>
@@ -155,49 +246,109 @@ export function ProjectForm({ initialScope = "" }: { initialScope?: string }) {
   }
 
   return (
-    <div ref={formRef} className="scroll-mt-[110px]">
+    <form
+      ref={formRef}
+      onSubmit={handleSubmit}
+      aria-labelledby={headingId}
+      className="scroll-mt-[110px]"
+    >
       {selectedScope && (
         <div className="mb-6 flex flex-wrap items-center gap-2 rounded-xl border border-sage/25 bg-sage/8 px-4 py-3 text-sm text-paper/72">
           <span className="font-mono text-[10px] tracking-[0.1em] text-sage">SELECTED STARTING POINT</span>
           <span>{selectedScope.title}</span>
         </div>
       )}
+      {restored && (
+        <div className="mb-6 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-paper/14 bg-paper/4 px-4 py-3 text-sm text-paper/70">
+          <span>Picked up where you left off.</span>
+          <button
+            type="button"
+            onClick={() => { setBrief({ ...emptyBrief, scope: initialScope }); setStep(0); setRestored(false); clearStorage(); }}
+            className="border-b border-paper/40 pb-0.5 font-medium text-paper/85"
+          >
+            Start over
+          </button>
+        </div>
+      )}
       <div className="mb-[clamp(28px,4vw,44px)] flex items-center justify-between gap-4 font-mono text-xs tracking-[0.08em] text-paper/50">
         <span>( PROJECT BRIEF )</span>
-        <span className="text-right">
-          STEP {step + 1} / 4
-        </span>
+        <span className="text-right">STEP {step + 1} / {STEPS}</span>
       </div>
-      <div className="mb-[clamp(40px,6vw,72px)] h-[3px] overflow-hidden rounded-full bg-paper/12">
-        <div className="h-full rounded-full bg-accent transition-[width] duration-500" style={{ width: `${((step + (valid ? 1 : 0)) / 4) * 100}%` }} />
+      <div
+        role="progressbar"
+        aria-valuemin={1}
+        aria-valuemax={STEPS}
+        aria-valuenow={step + 1}
+        aria-valuetext={`Step ${step + 1} of ${STEPS}: ${stepTitles[step]}`}
+        className="mb-[clamp(40px,6vw,72px)] h-[3px] overflow-hidden rounded-full bg-paper/12"
+      >
+        <div className="h-full rounded-full bg-accent transition-[width] duration-500" style={{ width: `${((step + (valid ? 1 : 0)) / STEPS) * 100}%` }} />
       </div>
+
+      {/* Announces the step change to screen readers, which a visual-only swap would not. */}
+      <p aria-live="polite" className="sr-only">
+        Step {step + 1} of {STEPS}: {stepTitles[step]}
+      </p>
+
       <div key={step} className="step-in">
+        <h2 id={headingId} className={`m-0 font-serif leading-[1.02] tracking-[-0.03em] ${step === 3 ? "text-[clamp(30px,4.4vw,54px)]" : "text-[clamp(32px,4.8vw,62px)]"}`}>
+          {stepTitles[step]}
+        </h2>
         {step === 0 && (
-          <div className="flex flex-col gap-[clamp(24px,3vw,36px)]">
-            <h2 className="m-0 font-serif text-[clamp(32px,4.8vw,62px)] leading-[1.02] tracking-[-0.03em]">What kind of business is this for?</h2>
-            <Options options={businessOptions} value={brief.business} onChange={(value) => update("business", value)} />
+          <div className="mt-[clamp(24px,3vw,36px)]">
+            <Options name="business" legend={stepTitles[0]} options={businessOptions} value={brief.business} onChange={(value) => update("business", value)} />
           </div>
         )}
         {step === 1 && (
-          <div className="flex flex-col gap-[clamp(24px,3vw,36px)]">
-            <h2 className="m-0 font-serif text-[clamp(32px,4.8vw,62px)] leading-[1.02] tracking-[-0.03em]">When would you like to launch?</h2>
-            <Options options={timeOptions} value={brief.timeline} onChange={(value) => update("timeline", value)} />
+          <div className="mt-[clamp(24px,3vw,36px)]">
+            <Options name="timeline" legend={stepTitles[1]} options={timeOptions} value={brief.timeline} onChange={(value) => update("timeline", value)} />
           </div>
         )}
         {step === 2 && (
-          <div className="flex flex-col gap-[clamp(24px,3vw,36px)]">
-            <h2 className="m-0 font-serif text-[clamp(32px,4.8vw,62px)] leading-[1.02] tracking-[-0.03em]">What does the website need?</h2>
+          <div className="mt-[clamp(24px,3vw,36px)] flex flex-col gap-[clamp(24px,3vw,36px)]">
             <p className="m-0 max-w-[46ch] text-[15px] text-paper/60">Choose the closest option. The exact scope is confirmed after we talk.</p>
-            <Options options={scopeOptions} value={brief.scope} onChange={(value) => update("scope", value)} />
+            <Options name="scope" legend={stepTitles[2]} options={scopeOptions} value={brief.scope} onChange={(value) => update("scope", value)} />
           </div>
         )}
         {step === 3 && (
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(min(280px,100%),1fr))] items-start gap-[clamp(28px,4vw,56px)]">
+          <div className="mt-[clamp(24px,3vw,36px)] grid grid-cols-[repeat(auto-fit,minmax(min(280px,100%),1fr))] items-start gap-[clamp(28px,4vw,56px)]">
             <div className="flex flex-col gap-[22px]">
-              <h2 className="m-0 font-serif text-[clamp(30px,4.4vw,54px)] leading-[1.02] tracking-[-0.03em]">Where should I follow up?</h2>
-              <Field label="YOUR NAME"><input value={brief.name} onChange={(event) => update("name", event.target.value)} placeholder="Jane Wanjiru" /></Field>
-              <Field label="EMAIL OR WHATSAPP"><input value={brief.contact} onChange={(event) => update("contact", event.target.value)} placeholder="you@example.com" /></Field>
-              <Field label="ANYTHING ELSE? (OPTIONAL)"><textarea rows={3} value={brief.message} onChange={(event) => update("message", event.target.value)} placeholder="A link, a deadline, a rough idea…" /></Field>
+              <Field label="YOUR NAME">
+                <input
+                  type="text"
+                  name="name"
+                  autoComplete="name"
+                  required
+                  value={brief.name}
+                  onChange={(event) => update("name", event.target.value)}
+                  placeholder="Jane Wanjiru"
+                />
+              </Field>
+              {/* Accepts an email or a phone number, so it stays type="text";
+                  inputMode still gets the right mobile keyboard. */}
+              <Field label="EMAIL OR WHATSAPP">
+                <input
+                  type="text"
+                  name="contact"
+                  inputMode="email"
+                  autoComplete="email"
+                  required
+                  minLength={5}
+                  value={brief.contact}
+                  onChange={(event) => update("contact", event.target.value)}
+                  placeholder="you@example.com"
+                />
+              </Field>
+              <Field label="ANYTHING ELSE? (OPTIONAL)">
+                <textarea
+                  rows={3}
+                  name="message"
+                  autoComplete="off"
+                  value={brief.message}
+                  onChange={(event) => update("message", event.target.value)}
+                  placeholder="A link, a deadline, a rough idea…"
+                />
+              </Field>
               <input
                 aria-hidden="true"
                 autoComplete="off"
@@ -226,11 +377,11 @@ export function ProjectForm({ initialScope = "" }: { initialScope?: string }) {
       </div>
       <div className="mt-[clamp(40px,6vw,72px)] flex flex-wrap items-center justify-between gap-4">
         <button type="button" data-cursor="Back" disabled={step === 0} onClick={() => changeStep(Math.max(0, step - 1))} className="border-0 bg-transparent text-[15px] font-medium text-paper/60 disabled:opacity-0">← Back</button>
-        {step < 3 ? (
-          <button type="button" data-magnetic data-cursor="Next" disabled={!valid} onClick={() => changeStep(step + 1)} className="rounded-full bg-accent px-8 py-[15px] text-base font-semibold text-ink transition-transform duration-300 disabled:pointer-events-none disabled:opacity-35">Continue</button>
+        {step < STEPS - 1 ? (
+          <button type="submit" data-magnetic data-cursor="Next" disabled={!valid} className="rounded-full bg-accent px-8 py-[15px] text-base font-semibold text-ink transition-transform duration-300 disabled:pointer-events-none disabled:opacity-35">Continue</button>
         ) : (
           <div className={`flex flex-wrap gap-2.5 ${valid ? "" : "pointer-events-none opacity-35"}`}>
-            <button type="button" data-magnetic data-cursor="Send" disabled={submitting} onClick={submitBrief} className="rounded-full bg-accent px-[26px] py-[15px] text-base font-semibold text-ink disabled:opacity-55 max-sm:w-full">
+            <button type="submit" data-magnetic data-cursor="Send" disabled={submitting || !valid} className="rounded-full bg-accent px-[26px] py-[15px] text-base font-semibold text-ink disabled:opacity-55 max-sm:w-full">
               {submitting ? "Sending…" : "Send project brief"}
             </button>
             <button type="button" data-cursor="Send" onClick={openWhatsApp} className="rounded-full border border-sage bg-sage/8 px-[26px] py-[15px] text-base font-semibold text-sage max-sm:w-full">
@@ -239,7 +390,8 @@ export function ProjectForm({ initialScope = "" }: { initialScope?: string }) {
           </div>
         )}
       </div>
-      {step === 3 && (
+      <p aria-live="polite" className="sr-only">{submitting ? "Sending your brief." : ""}</p>
+      {step === STEPS - 1 && (
         <div className="mt-5 max-w-[62ch] text-xs leading-[1.6] text-paper/45">
           <p>Your brief is used only to respond to this enquiry. WhatsApp opens with the same project summary ready for you to review.</p>
           {sendError && (
@@ -252,7 +404,7 @@ export function ProjectForm({ initialScope = "" }: { initialScope?: string }) {
           )}
         </div>
       )}
-    </div>
+    </form>
   );
 }
 

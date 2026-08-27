@@ -7,7 +7,7 @@ import { buildSteps, values } from "@/data/about";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Meet Alex Morgan, the independent designer and developer behind Vanto in Kenya.",
+  description: "Meet Alex Morgan, the independent designer and developer behind Vanto, working with clients worldwide.",
 };
 
 export default function AboutPage() {
@@ -15,7 +15,7 @@ export default function AboutPage() {
     <PageShell footerProps={{ headline: "Something you’re proud to share." }}>
       <PageHero
         eyebrow="ABOUT"
-        note="ALEX MORGAN — KENYA"
+        note="ALEX MORGAN — FOUNDER"
         lines={[<>Independent by design.</>, <>Close to the <em className="text-accent">work.</em></>]}
         width="15ch"
       />
@@ -26,13 +26,13 @@ export default function AboutPage() {
             <dl className="mt-7 grid gap-5 text-sm sm:grid-cols-3 lg:grid-cols-1">
               <div><dt className="font-mono text-[10px] tracking-[0.1em] text-accent">FOUNDER</dt><dd className="mt-1.5 text-paper/72">Alex Morgan</dd></div>
               <div><dt className="font-mono text-[10px] tracking-[0.1em] text-accent">DISCIPLINES</dt><dd className="mt-1.5 text-paper/72">Strategy, design, development</dd></div>
-              <div><dt className="font-mono text-[10px] tracking-[0.1em] text-accent">LOCATION</dt><dd className="mt-1.5 text-paper/72">Kenya · Working worldwide</dd></div>
+              <div><dt className="font-mono text-[10px] tracking-[0.1em] text-accent">CLIENTS</dt><dd className="mt-1.5 text-paper/72">Worldwide · Remote-first</dd></div>
             </dl>
           </aside>
           <div data-fade className="max-w-[760px]">
             <p className="mb-5 font-mono text-xs tracking-[0.12em] text-accent">ALEX MORGAN — FOUNDER, DESIGNER & DEVELOPER</p>
             <p className="m-0 max-w-[24ch] font-serif text-[clamp(28px,3.6vw,50px)] leading-[1.18] tracking-[-0.02em]">
-              Vanto is an independent web design and development studio based in Kenya.
+              Vanto is an independent web design and development studio working with clients worldwide.
             </p>
             <p className="mt-5 text-[clamp(15px,1.3vw,18px)] leading-[1.7] text-paper/70">
               I work with professional firms, service businesses, and growing brands that need a website to communicate their value with more clarity and confidence. Every project brings strategy, design, and development into one focused process.

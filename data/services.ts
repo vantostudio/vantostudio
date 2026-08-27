@@ -42,11 +42,6 @@ export const projectFit = [
     description:
       "Clear access to a decision-maker, honest business context, available brand material, and timely feedback at agreed checkpoints.",
   },
-  {
-    title: "What Vanto brings",
-    description:
-      "Direction, page structure, visual design, development, launch guidance, and direct responsibility for the quality of the finished site.",
-  },
 ] as const;
 
 export const plans = [

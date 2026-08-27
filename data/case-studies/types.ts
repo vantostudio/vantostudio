@@ -1,5 +1,5 @@
-export type ProjectSlug = "brieshon" | "little-paws" | "odera-partners" | "amani-kibwana";
-export type ProjectSector = "Commerce" | "Lifestyle" | "Legal";
+export type ProjectSlug = "advocate-dossier" | "aperture" | "brieshon" | "little-paws" | "odera-partners" | "amani-kibwana";
+export type ProjectSector = "Commerce" | "Creative" | "Lifestyle" | "Legal";
 
 export type Project = {
   slug: ProjectSlug;
@@ -21,6 +21,8 @@ export type Project = {
   facts: [string, string][];
   tagline: string;
   intro: string;
+  /** Concepts only: why this was self-initiated, so R&D reads as intent rather than filler. */
+  whyBuilt?: string;
   disclaimer?: string;
   meta: [string, string][];
   highlights: [string, string][];

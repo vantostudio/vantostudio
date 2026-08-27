@@ -4,7 +4,7 @@ import { ServicesPreview } from "@/components/home/ServicesPreview";
 import { HomeProcess } from "@/components/home/HomeProcess";
 import { PointOfView } from "@/components/home/PointOfView";
 import { FounderPreview } from "@/components/home/FounderPreview";
-import { EngagementPreview } from "@/components/home/EngagementPreview";
+import { Testimonials } from "@/components/home/Testimonials";
 import { HomeFaq } from "@/components/home/HomeFaq";
 import { PageShell } from "@/components/layout/PageShell";
 
@@ -17,7 +17,7 @@ export default function HomePage() {
       <ServicesPreview />
       <HomeProcess />
       <FounderPreview />
-      <EngagementPreview />
+      <Testimonials />
       <HomeFaq />
     </PageShell>
   );

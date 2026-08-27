@@ -11,7 +11,7 @@ export function FounderPreview() {
             <p className="mt-5 font-serif text-[clamp(30px,3.5vw,48px)] leading-none">Alex Morgan</p>
             <dl className="mt-8 grid gap-5 text-sm sm:grid-cols-3 lg:grid-cols-1">
               <div><dt className="font-mono text-[10px] tracking-[0.1em] text-accent">ROLE</dt><dd className="mt-1.5 text-paper/68">Designer and developer</dd></div>
-              <div><dt className="font-mono text-[10px] tracking-[0.1em] text-accent">BASE</dt><dd className="mt-1.5 text-paper/68">Kenya, working worldwide</dd></div>
+              <div><dt className="font-mono text-[10px] tracking-[0.1em] text-accent">CLIENTS</dt><dd className="mt-1.5 text-paper/68">Worldwide, remote-first</dd></div>
               <div><dt className="font-mono text-[10px] tracking-[0.1em] text-accent">MODEL</dt><dd className="mt-1.5 text-paper/68">Independent and direct</dd></div>
             </dl>
           </aside>
@@ -21,7 +21,7 @@ export function FounderPreview() {
               Independent, with the work kept close.
             </h2>
             <p className="mt-7 max-w-[54ch] text-[clamp(16px,1.45vw,19px)] leading-[1.7] text-paper/70">
-              Vanto is led by Alex Morgan, a designer and developer based in Kenya. Every project is handled directly—from early strategy and structure through design, development, and launch.
+              Vanto is led by Alex Morgan, a designer and developer working with clients worldwide. Every project is handled directly—from early strategy and structure through design, development, and launch.
             </p>
             <p className="mt-5 max-w-[54ch] text-[15px] leading-[1.7] text-paper/58">
               Fewer layers keep communication clear, decisions close to the work, and the final experience consistent with the original direction.

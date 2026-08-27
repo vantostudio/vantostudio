@@ -7,7 +7,7 @@ import { projectFit, quoteFactors, services, standards } from "@/data/services";
 
 export const metadata: Metadata = {
   title: "Services",
-  description: "Website strategy, design, development, launch, and ongoing support from an independent studio in Kenya.",
+  description: "Website strategy, design, development, launch, and ongoing support from an independent studio working worldwide.",
 };
 
 export default function ServicesPage() {
@@ -82,7 +82,7 @@ export default function ServicesPage() {
               The strongest projects have a clear decision-maker, useful business context, and room for considered decisions rather than rushed decoration.
             </p>
           </div>
-          <div className="grid gap-[clamp(24px,4vw,56px)] md:grid-cols-3">
+          <div className="grid gap-[clamp(24px,4vw,56px)] md:grid-cols-2">
             {projectFit.map((item, index) => (
               <article data-fade key={item.title} className="border-t border-paper/18 pt-5">
                 <span className="font-mono text-[11px] tracking-[0.1em] text-accent">0{index + 1}</span>
