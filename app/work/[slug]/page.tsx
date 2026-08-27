@@ -40,7 +40,7 @@ export default async function CaseStudyPage({ params }: Props) {
             <p data-hero-fade className="mt-[clamp(24px,3vw,36px)] max-w-[22ch] font-serif text-[clamp(22px,2.8vw,40px)] leading-[1.15] tracking-[-0.02em] text-paper/90 italic">{project.tagline}</p>
             <p data-hero-fade className="mt-[26px] max-w-[52ch] text-[clamp(16px,1.5vw,19px)] leading-[1.65] text-paper/72">{project.intro}</p>
             <div data-hero-fade className="mt-7 flex flex-wrap items-center gap-3">
-              <span className={`rounded-full border px-4 py-2 font-mono text-[11px] tracking-[0.1em] ${project.kind === "founder" ? "border-sage/50 text-sage" : "border-accent/60 text-accent"}`}>
+              <span className={`rounded-md border px-4 py-2 font-mono text-[11px] tracking-[0.1em] ${project.kind === "founder" ? "border-sage/50 text-sage" : "border-accent/60 text-accent"}`}>
                 {project.status}
               </span>
               <a href={project.href} target="_blank" rel="noreferrer" data-cursor="Visit" className="border-b border-accent pb-1 text-sm font-semibold text-paper/85">
@@ -137,7 +137,7 @@ export default async function CaseStudyPage({ params }: Props) {
             </Link>
             <div className="flex flex-col items-start gap-[26px] py-[clamp(56px,8vw,112px)]">
               <h2 data-fade className="m-0 max-w-[15ch] font-serif text-[clamp(40px,7vw,104px)] leading-[0.96] tracking-[-0.03em] text-balance">Have a problem worth designing around?</h2>
-              <Link data-fade data-magnetic data-cursor="Start" href="/contact" className="rounded-full bg-accent px-[34px] py-[17px] text-base font-semibold text-ink">Start a project</Link>
+              <Link data-fade data-magnetic data-cursor="Start" href="/contact" className="rounded-[10px] bg-accent px-[34px] py-[17px] text-base font-semibold text-ink">Start a project</Link>
             </div>
             <div className="flex flex-wrap justify-between gap-4 border-t border-paper/12 py-6 font-mono text-xs text-paper-muted"><span>© 2026 VANTO</span><span>WORKING WORLDWIDE</span></div>
           </Container>

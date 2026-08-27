@@ -38,7 +38,7 @@ export function ServicesPreview() {
               <p className="mt-4 max-w-[36ch] text-[15px] leading-[1.6] text-[#5f584d]">{capability.note}</p>
               <div className="mt-6 flex flex-wrap gap-2">
                 {capability.details.map((detail) => (
-                  <span key={detail} className="rounded-full border border-paper-line px-3 py-1.5 font-mono text-[10px] tracking-[0.06em] text-[#6f675a]">
+                  <span key={detail} className="rounded-md border border-paper-line px-3 py-1.5 font-mono text-[10px] tracking-[0.06em] text-[#6f675a]">
                     {detail}
                   </span>
                 ))}

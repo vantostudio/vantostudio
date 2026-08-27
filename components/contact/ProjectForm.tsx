@@ -66,7 +66,7 @@ function Options({
             <label
               key={option}
               data-cursor="Pick"
-              className={`cursor-pointer rounded-full border-[1.5px] px-[26px] py-[15px] text-[clamp(15px,1.5vw,18px)] font-medium transition has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-4 has-[:focus-visible]:outline-sage ${
+              className={`cursor-pointer rounded-[10px] border-[1.5px] px-[26px] py-[15px] text-[clamp(15px,1.5vw,18px)] font-medium transition has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-4 has-[:focus-visible]:outline-sage ${
                 active ? "border-paper bg-paper text-ink" : "border-paper/22 bg-transparent text-paper/85"
               }`}
             >
@@ -233,11 +233,11 @@ export function ProjectForm({ initialScope = "" }: { initialScope?: string }) {
         </p>
         <div className="mt-2 flex flex-wrap gap-3">
           {!submitted && (
-            <button type="button" data-cursor="Send" onClick={openWhatsApp} className="rounded-full bg-accent px-7 py-[13px] text-[15px] font-semibold text-ink">
+            <button type="button" data-cursor="Send" onClick={openWhatsApp} className="rounded-[10px] bg-accent px-7 py-[13px] text-[15px] font-semibold text-ink">
               Reopen WhatsApp
             </button>
           )}
-          <button type="button" data-cursor="Edit" onClick={() => { setDone(false); scrollToForm(); }} className="rounded-full border-[1.5px] border-paper/30 px-7 py-[13px] text-[15px] font-semibold hover:border-paper">
+          <button type="button" data-cursor="Edit" onClick={() => { setDone(false); scrollToForm(); }} className="rounded-[10px] border-[1.5px] border-paper/30 px-7 py-[13px] text-[15px] font-semibold hover:border-paper">
             Edit the brief
           </button>
         </div>
@@ -378,13 +378,13 @@ export function ProjectForm({ initialScope = "" }: { initialScope?: string }) {
       <div className="mt-[clamp(40px,6vw,72px)] flex flex-wrap items-center justify-between gap-4">
         <button type="button" data-cursor="Back" disabled={step === 0} onClick={() => changeStep(Math.max(0, step - 1))} className="border-0 bg-transparent text-[15px] font-medium text-paper/60 disabled:opacity-0">← Back</button>
         {step < STEPS - 1 ? (
-          <button type="submit" data-magnetic data-cursor="Next" disabled={!valid} className="rounded-full bg-accent px-8 py-[15px] text-base font-semibold text-ink transition-transform duration-300 disabled:pointer-events-none disabled:opacity-35">Continue</button>
+          <button type="submit" data-magnetic data-cursor="Next" disabled={!valid} className="rounded-[10px] bg-accent px-8 py-[15px] text-base font-semibold text-ink transition-transform duration-300 disabled:pointer-events-none disabled:opacity-35">Continue</button>
         ) : (
           <div className={`flex flex-wrap gap-2.5 ${valid ? "" : "pointer-events-none opacity-35"}`}>
-            <button type="submit" data-magnetic data-cursor="Send" disabled={submitting || !valid} className="rounded-full bg-accent px-[26px] py-[15px] text-base font-semibold text-ink disabled:opacity-55 max-sm:w-full">
+            <button type="submit" data-magnetic data-cursor="Send" disabled={submitting || !valid} className="rounded-[10px] bg-accent px-[26px] py-[15px] text-base font-semibold text-ink disabled:opacity-55 max-sm:w-full">
               {submitting ? "Sending…" : "Send project brief"}
             </button>
-            <button type="button" data-cursor="Send" onClick={openWhatsApp} className="rounded-full border border-sage bg-sage/8 px-[26px] py-[15px] text-base font-semibold text-sage max-sm:w-full">
+            <button type="button" data-cursor="Send" onClick={openWhatsApp} className="rounded-[10px] border border-sage bg-sage/8 px-[26px] py-[15px] text-base font-semibold text-sage max-sm:w-full">
               Continue on WhatsApp
             </button>
           </div>

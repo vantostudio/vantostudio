@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Layout";
+import { ButtonLink } from "@/components/ui/Button";
 import { mailto } from "@/data/site";
 
 export type FooterProps = {
@@ -22,14 +23,15 @@ export function Footer({
             {headline}
           </h2>
           <div data-fade className="flex flex-wrap gap-3.5">
-            <Link
+            <ButtonLink
               href="/contact"
               data-magnetic
               data-cursor="Start"
-              className="rounded-full bg-accent px-[34px] py-[17px] text-base font-semibold text-ink transition-transform duration-300"
+              size="lg"
+              className="px-[34px] py-[17px] transition-transform duration-300"
             >
               {buttonLabel}
-            </Link>
+            </ButtonLink>
           </div>
         </div>
         <div className="grid grid-cols-[repeat(auto-fit,minmax(min(160px,45%),1fr))] gap-8 py-[clamp(40px,5vw,64px)]">

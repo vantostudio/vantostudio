@@ -51,7 +51,7 @@ pauses instead).
 
 ---
 
-## 2. Pricing — add a floor to each tier
+## 2. Pricing — DONE, revisit as the work changes
 
 **The custom-quote approach is right.** Scoped work genuinely cannot be listed
 at a fixed price, and "Project-based quote" is honest. Keep it.
@@ -95,7 +95,29 @@ you are selling strategy and judgement, and the site argues that well.
 Whatever you choose, set it high enough that the wrong enquiries stop before
 they reach your calendar.
 
-**To implement:** `data/services.ts`, the `price` field on each entry in `plans`.
+**Set on 27 August 2026** in `data/services.ts`:
+
+| Tier | Floor | ~USD |
+| --- | --- | --- |
+| Focused website | From KES 45,000 | ~$350 |
+| Business website | From KES 120,000 | ~$930 |
+| Commerce & custom | From KES 300,000 | ~$2,300 |
+
+Calibrated to the Kenyan market, not US rates: above the template-and-freelancer
+tier (KES 15–25k) so the wrong enquiries filter themselves out, below Nairobi
+agency rates so an SME can still see itself on the page.
+
+Revisit if either happens:
+- More than about one enquiry in three is below the floor → the floor is too low.
+- Enquiries dry up entirely → too high, or the work shown does not yet justify it.
+
+If you want a genuinely cheap entry point later, make it a **separate product**
+— one page, fixed scope, fixed turnaround, one revision round — rather than
+lowering this floor. That way the cheap thing has boundaries instead of dragging
+the whole price anchor down.
+
+Consider showing a USD equivalent alongside KES once international enquiries
+start arriving; the site says "working worldwide" but prices in KES only.
 
 ---
 

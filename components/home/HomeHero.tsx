@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { Container } from "@/components/ui/Layout";
+import { ButtonLink } from "@/components/ui/Button";
 import { HeroBackdrop } from "./HeroBackdrop";
 
 const capabilityRail = [
@@ -31,12 +31,12 @@ export function HomeHero() {
               into a clear, distinctive website — then builds it from strategy through launch.
             </p>
             <div className="flex flex-wrap items-center gap-3.5">
-              <Link data-magnetic data-cursor="View" href="#work" className="rounded-full bg-paper px-[30px] py-4 text-base font-semibold text-ink transition-transform duration-300">
+              <ButtonLink data-magnetic data-cursor="View" href="#work" variant="light" size="lg" className="transition-transform duration-300">
                 View selected work
-              </Link>
-              <Link data-cursor="Talk" href="/contact" className="border-b-[1.5px] border-accent pb-1 text-base font-semibold text-paper/80">
+              </ButtonLink>
+              <ButtonLink data-cursor="Talk" href="/contact" variant="text" className="text-base">
                 Start a project →
-              </Link>
+              </ButtonLink>
             </div>
           </div>
         </Container>

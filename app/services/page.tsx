@@ -99,7 +99,7 @@ export default function ServicesPage() {
             <p className="mb-5 font-mono text-xs tracking-[0.14em] text-accent">( ENGAGEMENTS & QUOTING )</p>
             <h2 className="mb-4 font-serif text-[clamp(34px,5vw,72px)] tracking-[-0.025em]">A clear proposal, shaped around the work.</h2>
             <p className="m-0 text-[clamp(16px,1.4vw,19px)] leading-[1.6] text-[#4a463c]">
-              These are useful starting points, not rigid packages. After a short conversation, you receive a written proposal with the agreed scope, timeline, responsibilities, and investment.
+              These are starting points, not fixed prices. Every project is quoted around its own scope — after a short conversation you receive a written proposal covering the agreed scope, timeline, responsibilities, and investment.
             </p>
           </div>
           <PricingCards />

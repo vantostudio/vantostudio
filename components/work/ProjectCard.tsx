@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Project } from "@/data/projects";
 import { BrowserFrame } from "@/components/ui/BrowserFrame";
+import { Tag } from "@/components/ui/Tag";
 import { ProjectMotion } from "./ProjectMotion";
 
 export function ProjectCard({
@@ -52,9 +53,7 @@ export function ProjectCard({
         {compact ? (
           <div className="flex flex-wrap gap-2">
             {project.tags.map((tag) => (
-              <span key={tag} className="rounded-full border border-paper-line px-[13px] py-1.5 font-mono text-[11px] tracking-[0.06em] text-[#6f675a]">
-                {tag}
-              </span>
+              <Tag key={tag}>{tag}</Tag>
             ))}
           </div>
         ) : (
@@ -71,7 +70,7 @@ export function ProjectCard({
           <Link
             href={`/work/${project.slug}`}
             data-cursor={compact ? "Read" : "Read"}
-            className={compact ? "text-[15px] font-semibold text-accent" : "rounded-full bg-accent px-[22px] py-3 text-[15px] font-semibold text-ink"}
+            className={compact ? "text-[15px] font-semibold text-accent" : "rounded-[10px] bg-accent px-[22px] py-3 text-[15px] font-semibold text-ink"}
           >
             Read the case study →
           </Link>

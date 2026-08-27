@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Tag } from "@/components/ui/Tag";
 import { plans } from "@/data/services";
 
 export function PricingCards() {
@@ -19,9 +20,7 @@ export function PricingCards() {
           <div className="flex items-center justify-between gap-2.5">
             <h3 className="m-0 text-[15px] font-semibold">{plan.name}</h3>
             {plan.badge && (
-              <span className="rounded-full bg-sage px-[11px] py-1.5 font-mono text-[10px] tracking-[0.1em] text-ink">
-                {plan.badge}
-              </span>
+              <Tag tone="solidSage">{plan.badge}</Tag>
             )}
           </div>
           <div className="font-serif text-[clamp(24px,2.4vw,32px)] leading-[1.05]">{plan.price}</div>
@@ -37,7 +36,7 @@ export function PricingCards() {
           <Link
             href={`/contact?scope=${plan.scope}`}
             data-cursor="Start"
-            className={`mt-auto rounded-full border-[1.5px] p-3 text-center text-sm font-semibold ${
+            className={`mt-auto rounded-[10px] border-[1.5px] p-3 text-center text-sm font-semibold ${
               plan.dark
                 ? "border-sage bg-sage text-ink"
                 : plan.featured

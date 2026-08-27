@@ -70,7 +70,7 @@ export function WorkGallery() {
                     type="button"
                     aria-pressed={active}
                     onClick={() => setActiveFilter(filter)}
-                    className={`rounded-full border px-4 py-2 font-mono text-[11px] tracking-[0.08em] transition-colors ${
+                    className={`rounded-md border px-4 py-2 font-mono text-[11px] tracking-[0.08em] transition-colors ${
                       active
                         ? "border-accent bg-accent text-ink"
                         : "border-paper/20 text-paper/65 hover:border-paper/50 hover:text-paper"
