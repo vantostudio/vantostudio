@@ -51,7 +51,7 @@ export default function AboutPage() {
               <article data-fade key={number} className="flex flex-col gap-3 border-t border-paper-line pt-[22px]">
                 <span className="font-mono text-xs text-accent">{number}</span>
                 <h3 className="m-0 font-serif text-[clamp(22px,2.2vw,30px)] tracking-[-0.01em]">{title}</h3>
-                <p className="m-0 text-[15px] leading-[1.6] text-[#4a463c]">{description}</p>
+                <p className="m-0 text-[15px] leading-[1.6] text-ink-body">{description}</p>
               </article>
             ))}
           </div>
@@ -66,12 +66,12 @@ export default function AboutPage() {
           <div className="grid grid-cols-[repeat(auto-fit,minmax(min(220px,100%),1fr))] gap-[clamp(18px,2.5vw,28px)]">
             {buildSteps.map(([number, slot, title, description]) => (
               <article data-fade key={number} className="flex flex-col gap-3.5">
-                <div className="aspect-[4/3] overflow-hidden rounded-2xl border border-paper-line bg-[#e7ddc9]">
+                <div className="aspect-[4/3] overflow-hidden rounded-2xl border border-paper-line bg-paper-deep">
                   <ProcessVisual step={slot} />
                 </div>
                 <span className="font-mono text-[11px] tracking-[0.08em] text-accent">{number}</span>
                 <h3 className="m-0 text-[19px] font-semibold">{title}</h3>
-                <p className="m-0 text-sm leading-[1.6] text-[#4a463c]">{description}</p>
+                <p className="m-0 text-sm leading-[1.6] text-ink-body">{description}</p>
               </article>
             ))}
           </div>

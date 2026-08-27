@@ -35,7 +35,7 @@ const sizes: Record<Size, string> = {
 };
 
 const variants: Record<Variant, string> = {
-  primary: "bg-accent text-ink hover:brightness-110",
+  primary: "bg-accent-fill text-ink hover:brightness-110",
   light: "bg-paper text-ink hover:bg-white",
   outline: "border-[1.5px] border-paper/30 bg-transparent text-paper hover:border-paper",
   ink: "border-[1.5px] border-ink bg-ink text-paper hover:brightness-125",

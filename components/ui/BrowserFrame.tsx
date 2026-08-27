@@ -21,7 +21,7 @@ export function BrowserFrame({
       <div
         className={`overflow-hidden rounded-[18px] ring-1 ${
           light
-            ? "bg-[#e7ddc9] ring-[#cbbda2]/70 shadow-[0_24px_60px_-20px_rgba(20,17,13,.35)]"
+            ? "bg-paper-deep ring-paper-edge/70 shadow-[0_24px_60px_-20px_rgba(20,17,13,.35)]"
             : "bg-ink-soft ring-paper/12 shadow-[0_28px_70px_-24px_rgba(0,0,0,.7)]"
         } ${className}`}
       >
@@ -29,10 +29,10 @@ export function BrowserFrame({
       </div>
       <figcaption
         className={`mt-3 flex items-center gap-2 font-mono text-[11px] tracking-[0.08em] ${
-          light ? "text-[#7a7263]" : "text-paper/45"
+          light ? "text-ink-faint" : "text-paper/45"
         }`}
       >
-        <span aria-hidden="true" className={`inline-block size-1.5 rounded-full ${light ? "bg-[#a89a80]" : "bg-paper/30"}`} />
+        <span aria-hidden="true" className={`inline-block size-1.5 rounded-full ${light ? "bg-paper-muted" : "bg-paper/30"}`} />
         {domain}
       </figcaption>
     </figure>

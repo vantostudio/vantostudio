@@ -233,7 +233,7 @@ export function ProjectForm({ initialScope = "" }: { initialScope?: string }) {
         </p>
         <div className="mt-2 flex flex-wrap gap-3">
           {!submitted && (
-            <button type="button" data-cursor="Send" onClick={openWhatsApp} className="rounded-[10px] bg-accent px-7 py-[13px] text-[15px] font-semibold text-ink">
+            <button type="button" data-cursor="Send" onClick={openWhatsApp} className="rounded-[10px] bg-accent-fill px-7 py-[13px] text-[15px] font-semibold text-ink">
               Reopen WhatsApp
             </button>
           )}
@@ -282,7 +282,7 @@ export function ProjectForm({ initialScope = "" }: { initialScope?: string }) {
         aria-valuetext={`Step ${step + 1} of ${STEPS}: ${stepTitles[step]}`}
         className="mb-[clamp(40px,6vw,72px)] h-[3px] overflow-hidden rounded-full bg-paper/12"
       >
-        <div className="h-full rounded-full bg-accent transition-[width] duration-500" style={{ width: `${((step + (valid ? 1 : 0)) / STEPS) * 100}%` }} />
+        <div className="h-full rounded-full bg-accent-fill transition-[width] duration-500" style={{ width: `${((step + (valid ? 1 : 0)) / STEPS) * 100}%` }} />
       </div>
 
       {/* Announces the step change to screen readers, which a visual-only swap would not. */}
@@ -378,10 +378,10 @@ export function ProjectForm({ initialScope = "" }: { initialScope?: string }) {
       <div className="mt-[clamp(40px,6vw,72px)] flex flex-wrap items-center justify-between gap-4">
         <button type="button" data-cursor="Back" disabled={step === 0} onClick={() => changeStep(Math.max(0, step - 1))} className="border-0 bg-transparent text-[15px] font-medium text-paper/60 disabled:opacity-0">← Back</button>
         {step < STEPS - 1 ? (
-          <button type="submit" data-magnetic data-cursor="Next" disabled={!valid} className="rounded-[10px] bg-accent px-8 py-[15px] text-base font-semibold text-ink transition-transform duration-300 disabled:pointer-events-none disabled:opacity-35">Continue</button>
+          <button type="submit" data-magnetic data-cursor="Next" disabled={!valid} className="rounded-[10px] bg-accent-fill px-8 py-[15px] text-base font-semibold text-ink transition-transform duration-300 disabled:pointer-events-none disabled:opacity-35">Continue</button>
         ) : (
           <div className={`flex flex-wrap gap-2.5 ${valid ? "" : "pointer-events-none opacity-35"}`}>
-            <button type="submit" data-magnetic data-cursor="Send" disabled={submitting || !valid} className="rounded-[10px] bg-accent px-[26px] py-[15px] text-base font-semibold text-ink disabled:opacity-55 max-sm:w-full">
+            <button type="submit" data-magnetic data-cursor="Send" disabled={submitting || !valid} className="rounded-[10px] bg-accent-fill px-[26px] py-[15px] text-base font-semibold text-ink disabled:opacity-55 max-sm:w-full">
               {submitting ? "Sending…" : "Send project brief"}
             </button>
             <button type="button" data-cursor="Send" onClick={openWhatsApp} className="rounded-[10px] border border-sage bg-sage/8 px-[26px] py-[15px] text-base font-semibold text-sage max-sm:w-full">
@@ -395,7 +395,7 @@ export function ProjectForm({ initialScope = "" }: { initialScope?: string }) {
         <div className="mt-5 max-w-[62ch] text-xs leading-[1.6] text-paper/45">
           <p>Your brief is used only to respond to this enquiry. WhatsApp opens with the same project summary ready for you to review.</p>
           {sendError && (
-            <div role="alert" className="mt-4 rounded-xl border border-accent/35 bg-accent/8 p-4 text-paper/78">
+            <div role="alert" className="mt-4 rounded-xl border border-accent/35 bg-accent-fill/8 p-4 text-paper/78">
               <p className="m-0">{sendError}</p>
               <button type="button" onClick={openEmailApp} className="mt-2 border-b border-accent pb-0.5 font-semibold text-accent">
                 Open your email app

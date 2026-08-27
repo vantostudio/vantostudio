@@ -14,7 +14,7 @@ export function ServicesPreview() {
             </h2>
           </div>
           <div className="md:justify-self-end">
-            <p className="mb-5 max-w-[42ch] text-[15px] leading-[1.65] text-[#5f584d]">
+            <p className="mb-5 max-w-[42ch] text-[15px] leading-[1.65] text-ink-muted">
               Direction, design, and development stay connected, so decisions survive the journey from the first conversation to the live website.
             </p>
             <Link data-cursor="View" href="/services" className="border-b-[1.5px] border-accent pb-1 text-[15px] font-semibold text-accent">
@@ -29,16 +29,16 @@ export function ServicesPreview() {
               data-fade
               data-cursor="Explore"
               key={capability.number}
-              className="group flex min-h-[330px] flex-col bg-paper-card p-[clamp(26px,3vw,40px)] transition-colors duration-300 hover:bg-[#f0e5d2]"
+              className="group flex min-h-[330px] flex-col bg-paper-card p-[clamp(26px,3vw,40px)] transition-colors duration-300 hover:bg-paper-hover"
             >
               <span className="font-mono text-xs tracking-[0.1em] text-accent">{capability.number}</span>
               <h3 className="mt-auto max-w-[12ch] font-serif text-[clamp(28px,3vw,42px)] leading-[1.02] tracking-[-0.02em]">
                 {capability.name}
               </h3>
-              <p className="mt-4 max-w-[36ch] text-[15px] leading-[1.6] text-[#5f584d]">{capability.note}</p>
+              <p className="mt-4 max-w-[36ch] text-[15px] leading-[1.6] text-ink-muted">{capability.note}</p>
               <div className="mt-6 flex flex-wrap gap-2">
                 {capability.details.map((detail) => (
-                  <span key={detail} className="rounded-md border border-paper-line px-3 py-1.5 font-mono text-[10px] tracking-[0.06em] text-[#6f675a]">
+                  <span key={detail} className="rounded-md border border-paper-line px-3 py-1.5 font-mono text-[10px] tracking-[0.06em] text-ink-faint">
                     {detail}
                   </span>
                 ))}

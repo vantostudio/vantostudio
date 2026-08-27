@@ -24,7 +24,7 @@ export function PricingCards() {
             )}
           </div>
           <div className="font-serif text-[clamp(24px,2.4vw,32px)] leading-[1.05]">{plan.price}</div>
-          <p className={`m-0 text-[13px] leading-[1.5] ${plan.dark ? "text-paper/55" : "text-[#6f675a]"}`}>{plan.who}</p>
+          <p className={`m-0 text-[13px] leading-[1.5] ${plan.dark ? "text-paper/55" : "text-ink-faint"}`}>{plan.who}</p>
           <ul className="mt-1 flex list-none flex-col gap-[9px] p-0 text-[13px]">
             {plan.features.map((feature) => (
               <li key={feature} className="flex gap-[9px]">

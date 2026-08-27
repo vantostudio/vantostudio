@@ -27,7 +27,7 @@ export default async function CaseStudyPage({ params }: Props) {
 
   return (
     <PageShell footer={false}>
-      <div className="[--color-accent:#b4552d]">
+      <div className="[--color-accent:var(--color-accent-case)]">
         <section className="bg-[radial-gradient(circle_at_82%_8%,rgba(180,85,45,.14),transparent_34%)] pt-[clamp(130px,20vh,200px)] pb-[clamp(32px,4vw,48px)]">
           <Container>
             <Link data-hero-fade data-cursor="Back" href="/work" className="mb-[clamp(28px,5vw,48px)] inline-flex font-mono text-xs tracking-[0.08em] text-paper/60">← ALL WORK</Link>
@@ -90,7 +90,7 @@ export default async function CaseStudyPage({ params }: Props) {
               {project.highlights.map(([number, label]) => (
                 <div data-fade key={label} className="border-t-2 border-accent pt-[18px]">
                   <div className="font-serif text-[clamp(34px,4vw,58px)] leading-none">{number}</div>
-                  <div className="mt-3 font-mono text-[11px] tracking-[0.08em] text-[#6f675a]">{label}</div>
+                  <div className="mt-3 font-mono text-[11px] tracking-[0.08em] text-ink-faint">{label}</div>
                 </div>
               ))}
             </div>
@@ -105,9 +105,9 @@ export default async function CaseStudyPage({ params }: Props) {
                   <div className={`flex max-w-[52ch] flex-col gap-[18px] ${flipped ? "lg:order-2" : ""}`}>
                     <span className="font-mono text-xs tracking-[0.12em] text-accent">0{blockIndex + 1} — {block.label}</span>
                     <h2 className="m-0 font-serif text-[clamp(30px,4vw,56px)] leading-[1.02] tracking-[-0.025em]">{block.title}</h2>
-                    <p className="m-0 text-[clamp(16px,1.4vw,19px)] leading-[1.68] text-[#4a463c]">{block.body}</p>
+                    <p className="m-0 text-[clamp(16px,1.4vw,19px)] leading-[1.68] text-ink-body">{block.body}</p>
                   </div>
-                  <div className={`overflow-hidden rounded-[18px] border border-paper-line bg-[#e7ddc9] shadow-[0_24px_60px_rgba(20,17,13,.16)] ${flipped ? "lg:order-1" : ""}`}>
+                  <div className={`overflow-hidden rounded-[18px] border border-paper-line bg-paper-deep shadow-[0_24px_60px_rgba(20,17,13,.16)] ${flipped ? "lg:order-1" : ""}`}>
                     <div className="aspect-[16/10] overflow-hidden">
                       <CaseStudyImage
                         src={block.image}
@@ -137,7 +137,7 @@ export default async function CaseStudyPage({ params }: Props) {
             </Link>
             <div className="flex flex-col items-start gap-[26px] py-[clamp(56px,8vw,112px)]">
               <h2 data-fade className="m-0 max-w-[15ch] font-serif text-[clamp(40px,7vw,104px)] leading-[0.96] tracking-[-0.03em] text-balance">Have a problem worth designing around?</h2>
-              <Link data-fade data-magnetic data-cursor="Start" href="/contact" className="rounded-[10px] bg-accent px-[34px] py-[17px] text-base font-semibold text-ink">Start a project</Link>
+              <Link data-fade data-magnetic data-cursor="Start" href="/contact" className="rounded-[10px] bg-accent-fill px-[34px] py-[17px] text-base font-semibold text-ink">Start a project</Link>
             </div>
             <div className="flex flex-wrap justify-between gap-4 border-t border-paper/12 py-6 font-mono text-xs text-paper-muted"><span>© 2026 VANTO</span><span>WORKING WORLDWIDE</span></div>
           </Container>

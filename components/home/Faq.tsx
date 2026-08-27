@@ -25,7 +25,7 @@ export function Faq() {
             </button>
             <div className={`grid transition-[grid-template-rows,opacity] duration-400 ${expanded ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}>
               <div className="overflow-hidden">
-                <p className="m-0 max-w-[62ch] px-1 pb-[clamp(24px,3vw,32px)] pr-[60px] text-[clamp(15px,1.4vw,18px)] leading-[1.7] text-[#4a463c]">
+                <p className="m-0 max-w-[62ch] px-1 pb-[clamp(24px,3vw,32px)] pr-[60px] text-[clamp(15px,1.4vw,18px)] leading-[1.7] text-ink-body">
                   {answer}
                 </p>
               </div>

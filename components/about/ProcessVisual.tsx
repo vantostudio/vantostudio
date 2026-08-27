@@ -1,7 +1,7 @@
 export function ProcessVisual({ step }: { step: string }) {
   if (step === "btb-wireframe") {
     return (
-      <div className="grid size-full grid-cols-[.34fr_1fr] gap-3 bg-[#ddd1bb] p-[12%]">
+      <div className="grid size-full grid-cols-[.34fr_1fr] gap-3 bg-paper-line p-[12%]">
         <div className="rounded-lg border border-ink/18 bg-paper/45" />
         <div className="flex flex-col gap-3">
           <span className="h-[18%] rounded-md border border-ink/18 bg-paper/55" />
@@ -14,10 +14,10 @@ export function ProcessVisual({ step }: { step: string }) {
 
   if (step === "btb-design") {
     return (
-      <div className="relative size-full overflow-hidden bg-[#b4552d] p-[10%] text-paper">
+      <div className="relative size-full overflow-hidden bg-accent-case p-[10%] text-paper">
         <span className="font-serif text-[clamp(60px,9vw,110px)] leading-none tracking-[-0.06em]">Aa</span>
         <div className="absolute right-[10%] bottom-[12%] flex gap-2">
-          {["bg-ink", "bg-paper", "bg-sage", "bg-accent"].map((color) => <span key={color} className={`size-8 rounded-full border border-paper/25 ${color}`} />)}
+          {["bg-ink", "bg-paper", "bg-sage", "bg-accent-fill"].map((color) => <span key={color} className={`size-8 rounded-full border border-paper/25 ${color}`} />)}
         </div>
         <span className="absolute right-[10%] top-[12%] h-[42%] w-px bg-paper/30" />
       </div>
@@ -40,7 +40,7 @@ export function ProcessVisual({ step }: { step: string }) {
   }
 
   return (
-    <div className="grid size-full place-items-center bg-[#d8c9ae] p-[10%]">
+    <div className="grid size-full place-items-center bg-paper-edge p-[10%]">
       <div className="w-full overflow-hidden rounded-xl border border-ink/20 bg-paper shadow-[0_20px_45px_rgba(20,17,13,.22)]">
         <div className="flex items-center gap-1.5 border-b border-paper-line px-3 py-2">
           <i className="size-2 rounded-full bg-sage" /><span className="ml-2 font-mono text-[8px] text-paper-muted">yourdomain.com</span>

@@ -7,7 +7,7 @@ import type { ReactNode } from "react";
 const RADIUS = "rounded-md";
 
 const tones = {
-  line: "border border-paper-line text-[#6f675a]",
+  line: "border border-paper-line text-ink-faint",
   paper: "border border-paper/20 text-paper/65",
   accent: "border border-accent/60 text-accent",
   sage: "border border-sage/50 text-sage",

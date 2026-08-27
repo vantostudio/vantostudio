@@ -98,7 +98,7 @@ export default function ServicesPage() {
           <div data-fade className="mb-[clamp(40px,6vw,64px)] max-w-[60ch]">
             <p className="mb-5 font-mono text-xs tracking-[0.14em] text-accent">( ENGAGEMENTS & QUOTING )</p>
             <h2 className="mb-4 font-serif text-[clamp(34px,5vw,72px)] tracking-[-0.025em]">A clear proposal, shaped around the work.</h2>
-            <p className="m-0 text-[clamp(16px,1.4vw,19px)] leading-[1.6] text-[#4a463c]">
+            <p className="m-0 text-[clamp(16px,1.4vw,19px)] leading-[1.6] text-ink-body">
               Every project is quoted around its own scope. The starting point below gives you a sense of the floor — after a short conversation you receive a written proposal covering the agreed scope, timeline, responsibilities, and investment.
             </p>
           </div>
@@ -109,7 +109,7 @@ export default function ServicesPage() {
               <h3 className="m-0 max-w-[12ch] font-serif text-[clamp(28px,3.5vw,46px)] leading-[1.04] tracking-[-0.02em]">
                 Enough clarity to make a good decision.
               </h3>
-              <p className="mt-5 max-w-[40ch] text-[15px] leading-[1.65] text-[#5f584d]">
+              <p className="mt-5 max-w-[40ch] text-[15px] leading-[1.65] text-ink-muted">
                 Where useful, the proposal separates the essential launch scope from optional additions. That gives us room to adjust or phase the work without weakening the core experience.
               </p>
             </div>
@@ -117,7 +117,7 @@ export default function ServicesPage() {
               {quoteFactors.map(([title, description]) => (
                 <article data-fade key={title} className="bg-paper-card p-[clamp(22px,3vw,30px)]">
                   <h4 className="m-0 text-[16px] font-semibold">{title}</h4>
-                  <p className="mt-2 text-sm leading-[1.6] text-[#5f584d]">{description}</p>
+                  <p className="mt-2 text-sm leading-[1.6] text-ink-muted">{description}</p>
                 </article>
               ))}
             </div>

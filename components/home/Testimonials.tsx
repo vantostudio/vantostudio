@@ -23,10 +23,10 @@ export function Testimonials() {
               </blockquote>
               <figcaption className="mt-auto pt-6 text-sm">
                 <span className="block font-semibold text-ink">{item.name}</span>
-                <span className="mt-1 block text-[#5f584d]">
+                <span className="mt-1 block text-ink-muted">
                   {item.role}, {item.company}
                 </span>
-                <span className="mt-2 block font-mono text-[10px] tracking-[0.1em] text-[#8a8172]">
+                <span className="mt-2 block font-mono text-[10px] tracking-[0.1em] text-paper-muted">
                   {item.source}
                 </span>
               </figcaption>

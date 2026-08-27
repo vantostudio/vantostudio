@@ -34,7 +34,7 @@ export function ProjectPreview() {
                 <span className="font-mono text-[11px] tracking-[0.1em] text-accent">{featured.status}</span>
                 <h3 className="mt-3 font-serif text-[clamp(38px,5vw,70px)] leading-none tracking-[-0.025em]">{featured.name}</h3>
               </div>
-              <p className="m-0 max-w-[48ch] text-[15px] leading-[1.65] text-[#5f584d] md:justify-self-end">{featured.homeDescription}</p>
+              <p className="m-0 max-w-[48ch] text-[15px] leading-[1.65] text-ink-muted md:justify-self-end">{featured.homeDescription}</p>
             </div>
           </Link>
         </article>
@@ -49,12 +49,12 @@ export function ProjectPreview() {
                   </div>
                 </BrowserFrame>
                 <div className="pt-5">
-                  <span className="font-mono text-[10px] tracking-[0.1em] text-[#6f675a]">{project.status}</span>
+                  <span className="font-mono text-[10px] tracking-[0.1em] text-ink-faint">{project.status}</span>
                   <div className="mt-2 flex items-end justify-between gap-4">
                     <h3 className="m-0 font-serif text-[clamp(30px,3.6vw,48px)] leading-none tracking-[-0.02em]">{project.name}</h3>
                     <span className="shrink-0 text-sm font-semibold text-accent">Case study →</span>
                   </div>
-                  <p className="mt-4 max-w-[50ch] text-[14px] leading-[1.6] text-[#5f584d]">{project.homeDescription}</p>
+                  <p className="mt-4 max-w-[50ch] text-[14px] leading-[1.6] text-ink-muted">{project.homeDescription}</p>
                 </div>
               </Link>
             </article>

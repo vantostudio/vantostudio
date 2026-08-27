@@ -1,13 +1,38 @@
 @import "tailwindcss";
 
 @theme {
+  /* Dark-first. There is one theme and no toggle: the site alternates dark and
+     light *sections*, which is a composition choice, not a colour mode. */
+
+  /* Dark surfaces */
   --color-ink: #14110d;
   --color-ink-soft: #1c1813;
+
+  /* Light surfaces */
   --color-paper: #f4eddf;
   --color-paper-card: #fbf6ec;
+  --color-paper-deep: #e7ddc9;
+  --color-paper-hover: #f0e5d2;
   --color-paper-line: #dcd0ba;
+  --color-paper-edge: #cbbda2;
   --color-paper-muted: #8a8168;
-  --color-accent: #9a6a3c;
+
+  /* Text on light surfaces, strongest to faintest.
+     Replaces five near-identical greys that were hardcoded across the app. */
+  --color-ink-body: #4a463c;
+  --color-ink-muted: #5f584d;
+  --color-ink-faint: #6f675a;
+
+  /* Accent.
+     No single accent can meet AA on both #14110d and #f4eddf — a value light
+     enough for ink is too light for paper. So accent *text* is contextual
+     (see the surface rule below) while the accent *fill* stays fixed, since a
+     button's colour should not change with the section it sits in. */
+  --color-accent: #d39150;
+  --color-accent-fill: #9a6a3c;
+  /* Case studies shift the accent to a rust; same hue as before, lifted from
+     3.83 to 4.69 on ink so it clears AA. */
+  --color-accent-case: #c4643a;
   --color-sage: #7fa893;
   --font-sans: var(--font-instrument-sans), sans-serif;
   --font-serif: var(--font-instrument-serif), serif;
@@ -20,6 +45,19 @@
 
 html {
   scroll-behavior: smooth;
+  /* The site is dark. Without this, native scrollbars, form controls, and
+     autofill backgrounds render in the light palette on top of a dark page. */
+  color-scheme: dark;
+}
+
+/* Accent text darkens on light surfaces so it stays legible there. Scoped to
+   the surface classes rather than set per element, so every `text-accent`
+   resolves correctly without each call site having to know its background. */
+.bg-paper,
+.bg-paper-card,
+.bg-paper-deep,
+[data-surface="paper"] {
+  --color-accent: #8c5f34;
 }
 
 body {

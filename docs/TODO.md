@@ -171,6 +171,42 @@ message leads") that are going unused as article premises.
 
 ---
 
+## 4. Theme — decided, no toggle
+
+**One dark theme.** The site alternates dark and light *sections*, which is a
+composition choice, not a colour mode. There is no OS light mode and no toggle,
+and adding one would mean redesigning every section and flattening that rhythm.
+
+`color-scheme: dark` and `theme-color` are declared, so native scrollbars, form
+controls, autofill, and mobile browser chrome follow the page instead of
+rendering light on top of it.
+
+### Why there are two accent values
+
+No single accent can meet WCAG AA on both `#14110d` and `#f4eddf` — this was
+checked exhaustively across the colour space, not estimated. Anything light
+enough for ink is too light for paper. The previous single value (`#9a6a3c`)
+sat at 4.03 on ink and 4.00 on paper, failing on both, and it was what every
+small mono label used.
+
+So accent *text* resolves from its surface, via one rule in `globals.css`:
+
+| Context | Value | Contrast |
+| --- | --- | --- |
+| On ink | `#d39150` | 7.11 |
+| On paper | `#8c5f34` | 4.74 |
+| Case studies (on ink) | `#c4643a` | 4.69 |
+| Button fill (`bg-accent-fill`) | `#9a6a3c` | fixed |
+
+Every `text-accent` in the app resolves correctly without the call site knowing
+its background. Fills stay fixed deliberately — a button should not change
+colour with the section it sits in.
+
+**If you add a new light-surface class**, add it to the selector in
+`globals.css` next to `.bg-paper` or accent text will stay bright on it.
+
+---
+
 ## 4. Judgement calls worth revisiting
 
 ### Legal is now 3 of 5 projects

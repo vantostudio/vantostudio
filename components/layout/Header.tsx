@@ -58,7 +58,7 @@ export function Header() {
             className="flex items-center gap-0.5 font-serif text-[23px] tracking-[-0.01em]"
           >
             Vanto
-            <span className="mx-0.5 inline-block size-[7px] rounded-full bg-accent" />
+            <span className="mx-0.5 inline-block size-[7px] rounded-full bg-accent-fill" />
           </Link>
           <nav
             className="flex items-center gap-1 max-[700px]:hidden"
@@ -89,7 +89,7 @@ export function Header() {
             className={`max-[440px]:hidden ${
               contact
                 ? "rounded-[10px] border-[1.5px] border-paper/30 px-5 py-2.5 text-sm font-semibold hover:border-paper"
-                : "rounded-[10px] bg-accent px-5 py-[11px] text-sm font-semibold text-ink transition-transform duration-300"
+                : "rounded-[10px] bg-accent-fill px-5 py-[11px] text-sm font-semibold text-ink transition-transform duration-300"
             }`}
           >
             {contact ? "Email instead" : "Start a project"}
@@ -141,7 +141,7 @@ export function Header() {
               <Link
                 href={contact ? mailto : "/contact"}
                 onClick={() => setMenuOpen(false)}
-                className="mt-1 rounded-[10px] bg-accent px-5 py-3.5 text-base font-semibold text-ink"
+                className="mt-1 rounded-[10px] bg-accent-fill px-5 py-3.5 text-base font-semibold text-ink"
               >
                 {contact ? "Send an email" : "Start a project"}
               </Link>

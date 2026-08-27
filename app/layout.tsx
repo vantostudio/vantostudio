@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { Instrument_Sans, Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
@@ -77,6 +77,13 @@ const structuredData = {
       inLanguage: "en",
     },
   ],
+};
+
+// Single dark theme — no toggle, no light mode. This keeps mobile browser
+// chrome and native controls in step with the page.
+export const viewport: Viewport = {
+  themeColor: "#14110d",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {

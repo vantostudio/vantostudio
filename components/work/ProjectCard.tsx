@@ -17,7 +17,7 @@ export function ProjectCard({
 }) {
   const flipped = index % 2 === 1;
   const foreground = light ? "text-ink" : "text-paper";
-  const body = light ? "text-[#4a463c]" : "text-paper/72";
+  const body = light ? "text-ink-body" : "text-paper/72";
 
   return (
     <article data-work className={`grid items-center gap-[clamp(24px,4vw,64px)] lg:grid-cols-[1.15fr_1fr] ${foreground}`}>
@@ -43,7 +43,7 @@ export function ProjectCard({
         <span className="font-mono text-xs tracking-[0.12em] text-accent">
           {project.index} — {project.category}
         </span>
-        <span className={`font-mono text-[11px] tracking-[0.1em] ${light ? "text-[#6f675a]" : "text-sage"}`}>
+        <span className={`font-mono text-[11px] tracking-[0.1em] ${light ? "text-ink-faint" : "text-sage"}`}>
           {project.status}
         </span>
         <h2 className="m-0 font-serif text-[clamp(36px,4.5vw,68px)] leading-none tracking-[-0.02em]">{project.name}</h2>
@@ -70,7 +70,7 @@ export function ProjectCard({
           <Link
             href={`/work/${project.slug}`}
             data-cursor={compact ? "Read" : "Read"}
-            className={compact ? "text-[15px] font-semibold text-accent" : "rounded-[10px] bg-accent px-[22px] py-3 text-[15px] font-semibold text-ink"}
+            className={compact ? "text-[15px] font-semibold text-accent" : "rounded-[10px] bg-accent-fill px-[22px] py-3 text-[15px] font-semibold text-ink"}
           >
             Read the case study →
           </Link>

@@ -42,7 +42,7 @@ export function ProjectMotion({
   }
 
   return (
-    <div className="relative size-full overflow-hidden bg-[#ded3bd]">
+    <div className="relative size-full overflow-hidden bg-paper-deep">
       <Image src={poster} alt={alt} fill sizes={sizes} className="object-cover object-top" />
       {video && (
         <video
