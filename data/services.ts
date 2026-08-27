@@ -48,13 +48,13 @@ export const projectFit = [
  * Only the entry tier carries a number. That is where a figure does real work
  * — it stops a poor-fit enquiry before it costs a call. The larger tiers vary
  * too much for a floor to be honest, so they stay quote-based.
- * Priced for the Kenyan market, above the template-and-freelancer tier.
+ * Priced for the Kenyan market, deliberately low enough to be an easy yes.
  */
 export const plans = [
   {
     name: "Focused website",
     scope: "focused",
-    price: "From KES 25,000",
+    price: "From KES 10,000",
     who: "For one clear offer, audience, and action.",
     features: ["One considered scrolling page", "Content structure and custom design", "Lead form or WhatsApp handoff", "Responsive build and launch"],
     badge: null,

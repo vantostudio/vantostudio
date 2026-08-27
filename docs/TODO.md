@@ -99,7 +99,7 @@ they reach your calendar.
 
 | Tier | Price shown |
 | --- | --- |
-| Focused website | From KES 25,000 |
+| Focused website | From KES 10,000 |
 | Business website | Project-based quote |
 | Commerce & custom | Custom project quote |
 
@@ -109,19 +109,21 @@ two vary too much for a floor to be honest, so they stay quote-based, which is
 also what protects your room to price a big project properly.
 
 Revisit if either happens:
-- More than about one enquiry in three is below the floor → raise it.
-- Enquiries dry up entirely → too high, or the work shown does not yet justify it.
+- You are booked out and still not earning what you want → raise the floor.
+- Enquiries arrive but nobody converts past the call → the floor is not the
+  problem; the scope conversation is.
+- Enquiries dry up entirely → too high for the market, or the work shown does
+  not yet justify it.
 
-A note for later: KES 25,000 is close to the template-and-freelancer tier
-(roughly KES 15–25k). It will bring volume, and volume is the thing a solo
-studio runs out of capacity for first — client management does not get faster
-just because the build does. If you find yourself busy but not better off, the
-floor is the first thing to move.
+The floor is set low on purpose, to sit under the local template-and-freelancer
+tier and win on craft at a price nobody argues with. The thing to watch is
+capacity rather than margin: client management does not get faster just because
+the build does, so volume is what a solo studio runs out of first. If you find
+yourself busy but not better off, the floor is the first thing to move.
 
-If you want a cheaper entry point than this, make it a **separate product** —
-one page, fixed scope, fixed turnaround, one revision round — rather than
-lowering this floor further. That way the cheap thing has boundaries instead of
-dragging the whole anchor down.
+At this floor the Focused tier is effectively the cheap product, so give it hard
+boundaries in the proposal — fixed scope, fixed turnaround, one revision round.
+Without them a 10k project can absorb the same hours as a 100k one.
 
 Consider showing a USD equivalent alongside KES once international enquiries
 start arriving; the site says "working worldwide" but prices in KES only.
