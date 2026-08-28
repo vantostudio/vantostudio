@@ -6,6 +6,7 @@ type Inquiry = {
   timeline: string;
   scope: string;
   name: string;
+  method: string;
   contact: string;
   message?: string;
   likelyFit: string;
@@ -17,6 +18,7 @@ const limits = {
   timeline: 80,
   scope: 100,
   name: 100,
+  method: 20,
   contact: 180,
   message: 3000,
   likelyFit: 100,
@@ -34,6 +36,7 @@ function parseInquiry(value: unknown): Inquiry | null {
     timeline: clean(input.timeline, limits.timeline),
     scope: clean(input.scope, limits.scope),
     name: clean(input.name, limits.name),
+    method: clean(input.method, limits.method) || "Email",
     contact: clean(input.contact, limits.contact),
     message: clean(input.message, limits.message),
     likelyFit: clean(input.likelyFit, limits.likelyFit),
@@ -56,7 +59,8 @@ function formatInquiry(inquiry: Inquiry) {
     "New website enquiry",
     "",
     `Name: ${inquiry.name}`,
-    `Contact: ${inquiry.contact}`,
+    `Preferred contact: ${inquiry.method}`,
+    `${inquiry.method}: ${inquiry.contact}`,
     `Business type: ${inquiry.business}`,
     `Timeline: ${inquiry.timeline}`,
     `Requested scope: ${inquiry.scope}`,
@@ -81,6 +85,7 @@ export async function POST(request: Request) {
     return Response.json({ error: "Email delivery is not configured." }, { status: 503 });
   }
 
+  // Only an address can be replied to; a WhatsApp number would bounce.
   const replyTo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inquiry.contact)
     ? inquiry.contact
     : undefined;
@@ -95,7 +100,7 @@ export async function POST(request: Request) {
       from,
       to: [to],
       reply_to: replyTo,
-      subject: `Website enquiry — ${inquiry.name} — ${inquiry.likelyFit}`,
+      subject: `Website enquiry — ${inquiry.name} — ${inquiry.likelyFit} (reply on ${inquiry.method})`,
       text: formatInquiry(inquiry),
     }),
   });

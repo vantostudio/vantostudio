@@ -55,3 +55,42 @@ export function getRecommendation(option: string) {
   return Object.values(scopeSelections).find((item) => item.option === option)
     ?? scopeSelections.undecided;
 }
+
+/**
+ * How the client wants to be reached. This drives both the input's keyboard
+ * and validation, and which channel the finished brief is handed off to.
+ */
+export const contactMethods = [
+  {
+    value: "Email",
+    label: "Email",
+    field: "Your email address",
+    placeholder: "you@example.com",
+    autoComplete: "email",
+    inputMode: "email",
+  },
+  {
+    value: "WhatsApp",
+    label: "WhatsApp",
+    field: "Your WhatsApp number",
+    placeholder: "+254 7XX XXX XXX",
+    autoComplete: "tel",
+    inputMode: "tel",
+  },
+] as const;
+
+export type ContactMethod = (typeof contactMethods)[number]["value"];
+
+export function getContactMethod(value: string) {
+  return contactMethods.find((method) => method.value === value) ?? contactMethods[0];
+}
+
+/** A single check per channel, so the error can name what is actually wrong. */
+export function validateContact(method: string, value: string) {
+  const trimmed = value.trim();
+  if (!trimmed) return method === "WhatsApp" ? "Add your WhatsApp number." : "Add your email address.";
+  if (method === "WhatsApp") {
+    return /^\+?[\d\s()-]{9,}$/.test(trimmed) ? "" : "That number looks incomplete — include the country code.";
+  }
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(trimmed) ? "" : "That email address looks incomplete.";
+}

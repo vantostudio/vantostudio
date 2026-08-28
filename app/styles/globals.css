@@ -305,3 +305,38 @@ button {
     display: none;
   }
 }
+
+/* Placeholders and select controls.
+
+   The `placeholder:text-paper/*` utilities resolve against the raw
+   --color-paper *surface* value, which is near-white on a pale page — so the
+   placeholder disappeared in light mode and washed out in dark. Anchoring them
+   to --color-surface-copy makes them follow the copy colour in both themes.
+   68% is the lowest mix that still clears 4.5:1 on the pale card while
+   reading as clearly secondary to typed input. */
+input::placeholder,
+textarea::placeholder {
+  color: color-mix(in srgb, var(--color-surface-copy) 68%, transparent);
+  opacity: 1;
+}
+
+/* The native select arrow is painted by the OS in its own theme, which reads
+   as a foreign element on a dark card. This draws our own from the copy
+   colour so it tracks the theme. */
+select.field-control {
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--color-surface-copy) 50%),
+    linear-gradient(135deg, var(--color-surface-copy) 50%, transparent 50%);
+  background-position: right 20px center, right 14px center;
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+  padding-right: 42px;
+}
+
+/* Option lists are rendered by the browser, not the page, so they need an
+   explicit pair — otherwise they inherit the OS theme and can land as dark
+   text on a dark list. */
+select.field-control option {
+  background: var(--color-ink);
+  color: var(--color-body-foreground);
+}

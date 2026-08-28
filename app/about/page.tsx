@@ -67,11 +67,13 @@ export default function AboutPage() {
             {buildSteps.map(([number, slot, title, description]) => (
               <article data-fade key={number} className="flex flex-col gap-3.5">
                 <span className="font-mono text-[11px] tracking-[0.08em] text-accent">{number}</span>
-                <div className="aspect-[4/3] overflow-hidden rounded-2xl border border-paper-line bg-paper-deep">
-                  <ProcessVisual step={slot} />
-                </div>
                 <h3 className="m-0 text-[19px] font-semibold">{title}</h3>
                 <p className="m-0 text-sm leading-[1.6] text-ink-body">{description}</p>
+                {/* The illustration follows the words: the stage is named and
+                    explained first, then shown. */}
+                <div className="mt-auto aspect-[4/3] overflow-hidden rounded-2xl border border-paper-line bg-paper-deep">
+                  <ProcessVisual step={slot} />
+                </div>
               </article>
             ))}
           </div>
