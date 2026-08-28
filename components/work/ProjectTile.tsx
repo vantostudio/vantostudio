@@ -8,7 +8,7 @@ export function ProjectTile({ project }: { project: Project }) {
     <article data-work className="flex h-full flex-col text-paper">
       <Link href={`/work/${project.slug}`} data-cursor="Open" className="block">
         <BrowserFrame domain={project.domain}>
-          <div className="aspect-[16/10] overflow-hidden">
+          <div className="aspect-[16/9] overflow-hidden">
             <ProjectMotion
               video={project.video}
               poster={project.image}

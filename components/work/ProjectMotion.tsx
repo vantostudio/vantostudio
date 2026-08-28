@@ -47,6 +47,7 @@ export function ProjectMotion({
       {video && (
         <video
           ref={videoRef}
+          autoPlay
           muted
           loop
           playsInline
@@ -56,6 +57,7 @@ export function ProjectMotion({
           className="project-motion-video absolute inset-0 size-full object-cover object-top"
         >
           <source src={video} type="video/webm" />
+          <source src={video.replace(/\.webm$/, ".mp4")} type="video/mp4" />
         </video>
       )}
     </div>

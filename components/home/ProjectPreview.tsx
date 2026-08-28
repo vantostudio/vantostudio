@@ -25,7 +25,7 @@ export function ProjectPreview() {
         <article data-work>
           <Link href={`/work/${featured.slug}`} data-cursor="Open" className="group block">
             <BrowserFrame domain={featured.domain} light>
-              <div className="aspect-[16/8.7] overflow-hidden">
+              <div className="aspect-[16/9] overflow-hidden">
                 <ProjectMotion video={featured.video} poster={featured.image} alt={featured.imageAlt} />
               </div>
             </BrowserFrame>
@@ -44,7 +44,7 @@ export function ProjectPreview() {
             <article data-work key={project.slug}>
               <Link href={`/work/${project.slug}`} data-cursor="Open" className="group block">
                 <BrowserFrame domain={project.domain} light>
-                  <div className="aspect-[16/10] overflow-hidden">
+                  <div className="aspect-[16/9] overflow-hidden">
                     <ProjectMotion video={project.video} poster={project.image} alt={project.imageAlt} sizes="(max-width: 768px) 100vw, 50vw" />
                   </div>
                 </BrowserFrame>

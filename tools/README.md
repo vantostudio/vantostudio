@@ -7,8 +7,13 @@ every project is framed identically instead of shot by hand.
 
 Matches every asset currently in `public/projects/`:
 
-- **Stills** — 2400×1350 webp, captured at a 1600px CSS viewport
-- **Scroll videos** — VP9 webm, 1280×720, 12fps, exactly 6.000s (72 frames)
+- **Stills** — 2400×1350 webp, captured at a 1920px CSS viewport so the whole
+  desktop layout is in frame. The site renders these small on a phone, so
+  anything tight or cropped at capture time is lost there.
+- **Scroll videos** — 1280×720, 12fps, exactly 6.000s (72 frames), written as
+  **both** VP9 webm and H.264 MP4 (Constrained Baseline, yuv420p, +faststart).
+  The MP4 is not optional: iOS Safari has no dependable VP9-in-WebM support, so
+  without it the previews silently never play on iPhone.
 
 ## Requirements
 
@@ -36,6 +41,7 @@ for f in out/<site>/*.png; do
     "../public/projects/<site>/$(basename "$f" .png).webp"
 done
 cp out/<site>/preview.webm ../public/projects/<site>/preview.webm
+cp out/<site>/preview.mp4  ../public/projects/<site>/preview.mp4
 ```
 
 ## Adding a project
@@ -50,3 +56,10 @@ capture partway down a page.
 - Brieshon is not in `SITES` because its hosting is down. Add it back when the
   site is live so its framing matches the rest.
 - Aperture deliberately ships without a scroll video.
+
+## Container aspect
+
+`ProjectMotion` uses `object-cover`, so any container that is not 16:9 crops the
+screenshot. All media containers are `aspect-[16/9]` to match the source — if
+you change one, the sides of every screenshot start disappearing, worst on
+mobile where the whole image is already small.

@@ -27,7 +27,7 @@ export function ProjectCard({
         className={flipped ? "lg:order-2" : ""}
       >
         <BrowserFrame domain={project.domain} light={light}>
-          <div className="aspect-[16/11] overflow-hidden">
+          <div className="aspect-[16/9] overflow-hidden">
             <div data-parallax-inner className="size-full">
               <ProjectMotion
                 video={project.video}

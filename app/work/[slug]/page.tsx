@@ -76,7 +76,7 @@ export default async function CaseStudyPage({ params }: Props) {
           <Container>
             <div data-work>
               <BrowserFrame domain={project.domain}>
-                <div className="aspect-[16/9.2] overflow-hidden">
+                <div className="aspect-[16/9] overflow-hidden">
                   <ProjectMotion video={project.video} poster={project.image} alt={project.imageAlt} />
                 </div>
               </BrowserFrame>
@@ -108,7 +108,7 @@ export default async function CaseStudyPage({ params }: Props) {
                     <p className="m-0 text-[clamp(16px,1.4vw,19px)] leading-[1.68] text-ink-body">{block.body}</p>
                   </div>
                   <div className={`overflow-hidden rounded-[18px] border border-paper-line bg-paper-deep shadow-[0_24px_60px_rgba(20,17,13,.16)] ${flipped ? "lg:order-1" : ""}`}>
-                    <div className="aspect-[16/10] overflow-hidden">
+                    <div className="aspect-[16/9] overflow-hidden">
                       <CaseStudyImage
                         src={block.image}
                         alt={block.imageAlt}
