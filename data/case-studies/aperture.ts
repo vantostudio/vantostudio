@@ -2,7 +2,7 @@ import type { Project } from "./types";
 
 export const aperture: Project = {
   slug: "aperture",
-  index: "01",
+  index: "02",
   category: "PHOTOGRAPHY & CREATIVE PRACTICE",
   sector: "Creative",
   status: "INDEPENDENT CONCEPT",

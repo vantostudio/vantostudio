@@ -2,7 +2,7 @@ import type { Project } from "./types";
 
 export const littlePaws: Project = {
   slug: "little-paws",
-  index: "02",
+  index: "03",
   category: "RETAIL & LIFESTYLE",
   sector: "Lifestyle",
   status: "INDEPENDENT CONCEPT",

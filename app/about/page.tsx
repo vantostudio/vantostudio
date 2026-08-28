@@ -66,10 +66,10 @@ export default function AboutPage() {
           <div className="grid grid-cols-[repeat(auto-fit,minmax(min(220px,100%),1fr))] gap-[clamp(18px,2.5vw,28px)]">
             {buildSteps.map(([number, slot, title, description]) => (
               <article data-fade key={number} className="flex flex-col gap-3.5">
+                <span className="font-mono text-[11px] tracking-[0.08em] text-accent">{number}</span>
                 <div className="aspect-[4/3] overflow-hidden rounded-2xl border border-paper-line bg-paper-deep">
                   <ProcessVisual step={slot} />
                 </div>
-                <span className="font-mono text-[11px] tracking-[0.08em] text-accent">{number}</span>
                 <h3 className="m-0 text-[19px] font-semibold">{title}</h3>
                 <p className="m-0 text-sm leading-[1.6] text-ink-body">{description}</p>
               </article>

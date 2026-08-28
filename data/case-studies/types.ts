@@ -1,4 +1,4 @@
-export type ProjectSlug = "advocate-dossier" | "aperture" | "brieshon" | "little-paws" | "odera-partners" | "amani-kibwana";
+export type ProjectSlug = "kairos" | "advocate-dossier" | "aperture" | "brieshon" | "little-paws" | "odera-partners" | "amani-kibwana";
 export type ProjectSector = "Commerce" | "Creative" | "Lifestyle" | "Legal";
 
 export type Project = {

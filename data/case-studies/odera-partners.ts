@@ -2,7 +2,7 @@ import type { Project } from "./types";
 
 export const oderaPartners: Project = {
   slug: "odera-partners",
-  index: "03",
+  index: "04",
   category: "LEGAL & PROFESSIONAL SERVICES",
   sector: "Legal",
   status: "INDEPENDENT CONCEPT",

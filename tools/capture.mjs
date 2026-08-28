@@ -12,6 +12,11 @@ const VIDEO_W = 1280, VIDEO_H = 720, FPS = 12, SECONDS = 6;
 const FRAMES = FPS * SECONDS;
 
 const SITES = {
+  kairos: {
+    base: "https://remix-of-maison-olive.vercel.app",
+    settle: 4000,
+    stills: { home: "/", products: "/products", product: "/products/bahari-diver-300", collection: { path: "/", scroll: 2.6 } },
+  },
   "advocate-dossier": {
     base: "https://advocate-s-dossier.vercel.app",
     settle: 4000,
@@ -105,6 +110,13 @@ for (const [name, site] of Object.entries(SITES)) {
     "-vf", `scale=${VIDEO_W}:${VIDEO_H}:flags=lanczos`,
     "-c:v", "libvpx-vp9", "-b:v", "0", "-crf", CRF, "-row-mt", "1", "-an",
     `${out}/preview.webm`]);
+  // iOS Safari has no dependable VP9/WebM support — without this MP4 the
+  // previews silently never play on iPhone.
+  await run("ffmpeg", ["-y", "-framerate", String(FPS), "-i", `${frameDir}/%03d.png`,
+    "-vf", `scale=${VIDEO_W}:${VIDEO_H}:flags=lanczos,format=yuv420p`,
+    "-c:v", "libx264", "-profile:v", "baseline", "-level", "3.1",
+    "-crf", String(Number(CRF) - 8), "-movflags", "+faststart", "-an",
+    `${out}/preview.mp4`]);
   await rm(frameDir, { recursive: true, force: true });
   console.log(`video  ${name}/preview.webm`);
 }

@@ -2,7 +2,7 @@ import type { Project } from "./types";
 
 export const amaniKibwana: Project = {
   slug: "amani-kibwana",
-  index: "04",
+  index: "05",
   category: "LEGAL & PERSONAL PRACTICE",
   sector: "Legal",
   status: "INDEPENDENT CONCEPT",
