@@ -78,6 +78,26 @@ html {
   --color-accent: #84451d;
 }
 
+/* Navbar surface. The header carries .theme-dark, so --color-ink is the dark
+   value in both device themes; the alpha is high enough that the bar stays
+   genuinely dark over a pale page and its links keep AA contrast. */
+[data-navbar] {
+  background: color-mix(in srgb, var(--color-ink) 88%, transparent);
+  border-color: color-mix(in srgb, var(--color-surface-line) 30%, transparent);
+  box-shadow: none;
+  transition: background-color 240ms ease, border-color 240ms ease, box-shadow 240ms ease;
+}
+
+[data-navbar][data-solid="true"] {
+  background: color-mix(in srgb, var(--color-ink) 92%, transparent);
+}
+
+[data-navbar][data-scrolled="true"] {
+  background: color-mix(in srgb, var(--color-ink) 95%, transparent);
+  border-color: color-mix(in srgb, var(--color-surface-line) 42%, transparent);
+  box-shadow: 0 12px 40px rgb(0 0 0 / 0.3);
+}
+
 body {
   margin: 0;
   overflow-x: hidden;
@@ -120,11 +140,11 @@ button {
 .text-paper { color: var(--color-surface-copy); }
 .text-paper\/6 { color: color-mix(in srgb, var(--color-surface-copy) 6%, transparent); }
 .text-paper\/10 { color: color-mix(in srgb, var(--color-surface-copy) 10%, transparent); }
-.text-paper\/35 { color: color-mix(in srgb, var(--color-surface-copy) 60%, transparent); }
+.text-paper\/35 { color: color-mix(in srgb, var(--color-surface-copy) 66%, transparent); }
 .text-paper\/42,
-.text-paper\/45 { color: color-mix(in srgb, var(--color-surface-copy) 62%, transparent); }
+.text-paper\/45 { color: color-mix(in srgb, var(--color-surface-copy) 68%, transparent); }
 .text-paper\/50,
-.text-paper\/52 { color: color-mix(in srgb, var(--color-surface-copy) 65%, transparent); }
+.text-paper\/52 { color: color-mix(in srgb, var(--color-surface-copy) 70%, transparent); }
 .text-paper\/55 { color: color-mix(in srgb, var(--color-surface-copy) 67%, transparent); }
 .text-paper\/58 { color: color-mix(in srgb, var(--color-surface-copy) 68%, transparent); }
 .text-paper\/60 { color: color-mix(in srgb, var(--color-surface-copy) 70%, transparent); }
@@ -211,6 +231,17 @@ button {
   .border-ink\/18:not(.theme-dark *) { border-color: rgb(244 237 223 / 0.3); }
   .border-ink\/20:not(.theme-dark *) { border-color: rgb(244 237 223 / 0.32); }
   .border-ink\/70:not(.theme-dark *) { border-color: rgb(244 237 223 / 0.72); }
+}
+
+/* Content sitting on a filled control stays dark in both themes. Without this,
+   `text-ink` inside an accent or sage fill inherits the dark-mode light copy
+   colour and drops below AA against the fill. Declared after the media blocks
+   so it wins the specificity tie. */
+.bg-accent-fill .text-ink,
+.bg-accent-fill.text-ink,
+.bg-sage .text-ink,
+.bg-sage.text-ink {
+  color: #17120e;
 }
 
 .bg-paper-card {

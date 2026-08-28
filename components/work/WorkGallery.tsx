@@ -76,7 +76,7 @@ export function WorkGallery() {
                         : "border-paper/20 text-paper/65 hover:border-paper/50 hover:text-paper"
                     }`}
                   >
-                    {filter} <span className={active ? "text-ink/55" : "text-paper/35"}>{count}</span>
+                    {filter} <span className={active ? "text-ink" : "text-paper/35"}>{count}</span>
                   </button>
                 );
               })}

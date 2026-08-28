@@ -125,16 +125,13 @@ export function SiteEffects() {
     cleanups.push(() => document.removeEventListener("pointermove", magneticMove));
     cleanups.push(() => document.removeEventListener("pointerout", magneticLeave));
     const navbar = document.querySelector<HTMLElement>("[data-navbar]");
+    // Only the state is set here; the colours live in CSS so they follow the
+    // theme. Painting rgba() inline could not respond to prefers-color-scheme,
+    // which left the bar washed out — and its links below AA — on light pages.
     const updateNav = () => {
       if (!navbar) return;
-      const scrolled = scrollY > 40;
-      navbar.style.background = scrolled
-        ? "rgba(20,17,13,.8)"
-        : pathname === "/contact"
-          ? "rgba(20,17,13,.72)"
-          : "rgba(20,17,13,.55)";
-      navbar.style.borderColor = scrolled ? "rgba(244,237,223,.18)" : "rgba(244,237,223,.12)";
-      navbar.style.boxShadow = scrolled ? "0 12px 40px rgba(0,0,0,.3)" : "none";
+      navbar.dataset.scrolled = String(scrollY > 40);
+      navbar.dataset.solid = String(pathname === "/contact");
     };
     window.addEventListener("scroll", updateNav, { passive: true });
     cleanups.push(() => window.removeEventListener("scroll", updateNav));
