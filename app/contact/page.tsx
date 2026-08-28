@@ -37,7 +37,7 @@ export default async function ContactPage({
               Start with the business need.
             </h1>
             <p className="mt-7 max-w-[39ch] text-[clamp(15px,1.35vw,18px)] leading-[1.7] text-paper/68">
-              Four short steps give me enough context to understand the opportunity and recommend a useful next conversation.
+              Four short steps give us enough context to understand the opportunity and recommend a useful next conversation.
             </p>
             <dl className="mt-9 grid gap-4 border-t border-paper/14 pt-5 text-sm sm:grid-cols-2 lg:grid-cols-1">
               <div>
@@ -46,7 +46,7 @@ export default async function ContactPage({
               </div>
               <div>
                 <dt className="font-mono text-[10px] tracking-[0.12em] text-paper/42">WORKING MODEL</dt>
-                <dd className="mt-1.5 text-paper/78">Directly with Alex, from scope to launch</dd>
+                <dd className="mt-1.5 text-paper/78">A clear project lead from scope to launch</dd>
               </div>
               <div>
                 <dt className="font-mono text-[10px] tracking-[0.12em] text-paper/42">NEXT STEP</dt>

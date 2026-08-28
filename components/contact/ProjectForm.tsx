@@ -35,7 +35,7 @@ const stepTitles = [
   "What kind of business is this for?",
   "When would you like to launch?",
   "What does the website need?",
-  "Where should I follow up?",
+  "Where should we follow up?",
 ];
 
 /**
@@ -224,12 +224,12 @@ export function ProjectForm({ initialScope = "" }: { initialScope?: string }) {
           {submitted ? "( BRIEF RECEIVED )" : "( ONE LAST STEP )"}
         </span>
         <h2 className="m-0 max-w-[14ch] font-serif text-[clamp(34px,5vw,68px)] leading-none tracking-[-0.03em]">
-          {submitted ? `Thanks, ${brief.name.split(" ")[0]}. I have your brief.` : "Finish sending in WhatsApp."}
+          {submitted ? `Thanks, ${brief.name.split(" ")[0]}. We have your brief.` : "Finish sending in WhatsApp."}
         </h2>
         <p className="m-0 max-w-[46ch] text-[clamp(16px,1.5vw,19px)] leading-[1.6] text-paper/75">
           {submitted
-            ? "Your selected scope and project details were delivered securely. I usually reply within two business days with questions or a clear next step."
-            : "Your project summary has been prepared, but it is not sent until you press Send in WhatsApp. I usually reply within two business days."}
+            ? "Your selected scope and project details were delivered securely. We usually reply within two business days with questions or a clear next step."
+            : "Your project summary has been prepared, but it is not sent until you press Send in WhatsApp. We usually reply within two business days."}
         </p>
         <div className="mt-2 flex flex-wrap gap-3">
           {!submitted && (

@@ -7,7 +7,7 @@ import { projectFit, quoteFactors, services, standards } from "@/data/services";
 
 export const metadata: Metadata = {
   title: "Services",
-  description: "Website strategy, design, development, launch, and ongoing support from an independent studio working worldwide.",
+  description: "Connected website strategy, experience design, development, launch, and ongoing improvement from Vanto.",
 };
 
 export default function ServicesPage() {
@@ -23,7 +23,7 @@ export default function ServicesPage() {
         eyebrow="CAPABILITIES"
         note="STRATEGY → DESIGN → BUILD"
         lines={[<>From first idea</>, <>to a considered <em className="text-accent">launch.</em></>]}
-        intro="Every engagement is led directly by Alex Morgan, bringing strategy, design, and development together in one focused process."
+        intro="One connected team brings strategy, experience design, and development together—so every decision carries cleanly from brief to launch."
         width="13ch"
       />
       <section className="pb-[clamp(72px,10vw,140px)]">

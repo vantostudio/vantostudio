@@ -24,7 +24,7 @@ export const oderaPartners: Project = {
   intro:
     "Odera & Partners explores how a commercial-law firm can communicate depth without becoming dense, and authority without relying on visual clichés. The concept treats clarity, restraint, and discretion as both content principles and a design language.",
   whyBuilt:
-    "Legal was the sector I kept getting asked about and had no work to point to. Rather than wait for a firm to take the risk, I built the brief I would have written for one—commercial law, mid-size, discretion-led—and worked it through to a live build so the thinking could be judged rather than described.",
+    "We kept encountering the same legal-sector challenge: firms need authority and depth, but most category conventions make them look interchangeable. We wrote a mid-sized, discretion-led commercial-law brief and carried it through to a live build so the thinking could be judged rather than described.",
   disclaimer:
     "Independent concept project. The firm, people, representative matters, and business information are illustrative and were created to demonstrate Vanto’s approach.",
   meta: [

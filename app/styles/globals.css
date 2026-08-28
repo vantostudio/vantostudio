@@ -1,42 +1,35 @@
 @import "tailwindcss";
 
 @theme {
-  /* Dark-first. There is one theme and no toggle: the site alternates dark and
-     light *sections*, which is a composition choice, not a colour mode. */
-
-  /* Dark surfaces */
-  --color-ink: #14110d;
-  --color-ink-soft: #1c1813;
-
-  /* Light surfaces */
-  --color-paper: #f4eddf;
-  --color-paper-card: #fbf6ec;
-  --color-paper-deep: #e7ddc9;
-  --color-paper-hover: #f0e5d2;
-  --color-paper-line: #dcd0ba;
-  --color-paper-edge: #cbbda2;
-  --color-paper-muted: #8a8168;
-
-  /* Text on light surfaces, strongest to faintest.
-     Replaces five near-identical greys that were hardcoded across the app. */
-  --color-ink-body: #4a463c;
-  --color-ink-muted: #5f584d;
-  --color-ink-faint: #6f675a;
-
-  /* Accent.
-     No single accent can meet AA on both #14110d and #f4eddf — a value light
-     enough for ink is too light for paper. So accent *text* is contextual
-     (see the surface rule below) while the accent *fill* stays fixed, since a
-     button's colour should not change with the section it sits in. */
-  --color-accent: #d39150;
-  --color-accent-fill: #9a6a3c;
-  /* Case studies shift the accent to a rust; same hue as before, lifted from
-     3.83 to 4.69 on ink so it clears AA. */
-  --color-accent-case: #c4643a;
-  --color-sage: #7fa893;
+  /* Light mode is the safe default. Dark mode remaps the same semantic family
+     below, so the UI follows the device without a client-side theme flash. */
+  --color-ink: #f2eadf;
+  --color-ink-soft: #e9dfd2;
+  --color-paper: #fffaf2;
+  --color-paper-card: #fffdf8;
+  --color-paper-deep: #e5dacb;
+  --color-paper-hover: #f6ecdd;
+  --color-paper-line: #d5c6b1;
+  --color-paper-edge: #c4b298;
+  --color-paper-muted: #6c6255;
+  --color-ink-body: #3e3932;
+  --color-ink-muted: #50493f;
+  --color-ink-faint: #61584b;
+  --color-accent: #8b4b20;
+  --color-accent-fill: #c2783d;
+  --color-accent-case: #a44329;
+  --color-sage: #386b58;
   --font-sans: var(--font-instrument-sans), sans-serif;
   --font-serif: var(--font-instrument-serif), serif;
   --font-mono: var(--font-jetbrains-mono), monospace;
+}
+
+:root {
+  --color-body-foreground: #211d18;
+  --color-surface-copy: #211d18;
+  --color-surface-line: #6f6456;
+  --color-focus: #7f421d;
+  --shadow-card: 0 18px 54px -32px rgb(63 44 25 / 0.32);
 }
 
 * {
@@ -45,28 +38,55 @@
 
 html {
   scroll-behavior: smooth;
-  /* The site is dark. Without this, native scrollbars, form controls, and
-     autofill backgrounds render in the light palette on top of a dark page. */
+  color-scheme: light dark;
+  background: var(--color-ink);
+}
+
+/* A photo hero intentionally stays dark in both device themes. Keeping the
+   override local preserves its art direction while the rest of the site can
+   become genuinely light. */
+.theme-dark {
+  --color-ink: #14110d;
+  --color-ink-soft: #1c1813;
+  --color-paper: #f4eddf;
+  --color-paper-card: #211c16;
+  --color-paper-deep: #292219;
+  --color-paper-hover: #2d261d;
+  --color-paper-line: #44392d;
+  --color-paper-edge: #5b4d3c;
+  --color-paper-muted: #a99e8b;
+  --color-ink-body: #d0c7b7;
+  --color-ink-muted: #b8ae9d;
+  --color-ink-faint: #9f9585;
+  --color-accent: #e0a269;
+  --color-accent-fill: #c78345;
+  --color-accent-case: #dc754e;
+  --color-sage: #90baa5;
+  --color-body-foreground: #f4eddf;
+  --color-surface-copy: #f4eddf;
+  --color-surface-line: #f4eddf;
+  --color-focus: #a8d2bd;
+  color: var(--color-body-foreground);
   color-scheme: dark;
 }
 
-/* Accent text darkens on light surfaces so it stays legible there. Scoped to
-   the surface classes rather than set per element, so every `text-accent`
-   resolves correctly without each call site having to know its background. */
+/* Accent text is slightly deeper on pale surfaces for AA contrast. */
 .bg-paper,
 .bg-paper-card,
 .bg-paper-deep,
 [data-surface="paper"] {
-  --color-accent: #8c5f34;
+  --color-accent: #84451d;
 }
 
 body {
   margin: 0;
   overflow-x: hidden;
   background: var(--color-ink);
-  color: var(--color-paper);
+  color: var(--color-body-foreground);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: background-color 240ms ease, color 240ms ease;
 }
 
 a {
@@ -85,13 +105,116 @@ button {
 }
 
 ::selection {
-  background: var(--color-accent);
-  color: var(--color-paper);
+  background: var(--color-accent-fill);
+  color: #17120e;
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-sage);
-  outline-offset: 4px;
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+/* `paper` previously doubled as both a surface and foreground. These role
+   mappings preserve the component API while keeping translucent copy and
+   dividers readable against the active device theme. */
+.text-paper { color: var(--color-surface-copy); }
+.text-paper\/6 { color: color-mix(in srgb, var(--color-surface-copy) 6%, transparent); }
+.text-paper\/10 { color: color-mix(in srgb, var(--color-surface-copy) 10%, transparent); }
+.text-paper\/35 { color: color-mix(in srgb, var(--color-surface-copy) 60%, transparent); }
+.text-paper\/42,
+.text-paper\/45 { color: color-mix(in srgb, var(--color-surface-copy) 62%, transparent); }
+.text-paper\/50,
+.text-paper\/52 { color: color-mix(in srgb, var(--color-surface-copy) 65%, transparent); }
+.text-paper\/55 { color: color-mix(in srgb, var(--color-surface-copy) 67%, transparent); }
+.text-paper\/58 { color: color-mix(in srgb, var(--color-surface-copy) 68%, transparent); }
+.text-paper\/60 { color: color-mix(in srgb, var(--color-surface-copy) 70%, transparent); }
+.text-paper\/62 { color: color-mix(in srgb, var(--color-surface-copy) 72%, transparent); }
+.text-paper\/65 { color: color-mix(in srgb, var(--color-surface-copy) 75%, transparent); }
+.text-paper\/68 { color: color-mix(in srgb, var(--color-surface-copy) 78%, transparent); }
+.text-paper\/70 { color: color-mix(in srgb, var(--color-surface-copy) 80%, transparent); }
+.text-paper\/72 { color: color-mix(in srgb, var(--color-surface-copy) 82%, transparent); }
+.text-paper\/75 { color: color-mix(in srgb, var(--color-surface-copy) 84%, transparent); }
+.text-paper\/78 { color: color-mix(in srgb, var(--color-surface-copy) 86%, transparent); }
+.text-paper\/80 { color: color-mix(in srgb, var(--color-surface-copy) 88%, transparent); }
+.text-paper\/85 { color: color-mix(in srgb, var(--color-surface-copy) 92%, transparent); }
+.text-paper\/88 { color: color-mix(in srgb, var(--color-surface-copy) 94%, transparent); }
+.text-paper\/90 { color: color-mix(in srgb, var(--color-surface-copy) 95%, transparent); }
+
+.border-paper\/10,
+.border-paper\/12 { border-color: color-mix(in srgb, var(--color-surface-line) 34%, transparent); }
+.border-paper\/14 { border-color: color-mix(in srgb, var(--color-surface-line) 38%, transparent); }
+.border-paper\/18,
+.border-paper\/20 { border-color: color-mix(in srgb, var(--color-surface-line) 44%, transparent); }
+.border-paper\/22,
+.border-paper\/25 { border-color: color-mix(in srgb, var(--color-surface-line) 50%, transparent); }
+.border-paper\/28,
+.border-paper\/30 { border-color: color-mix(in srgb, var(--color-surface-line) 56%, transparent); }
+.border-paper\/35,
+.border-paper\/40 { border-color: color-mix(in srgb, var(--color-surface-line) 64%, transparent); }
+.border-paper\/50 { border-color: color-mix(in srgb, var(--color-surface-line) 74%, transparent); }
+.border-paper\/70 { border-color: color-mix(in srgb, var(--color-surface-line) 86%, transparent); }
+
+.bg-paper\/4 { background-color: color-mix(in srgb, var(--color-surface-copy) 3%, transparent); }
+.bg-paper\/6 { background-color: color-mix(in srgb, var(--color-surface-copy) 5%, transparent); }
+.bg-paper\/8 { background-color: color-mix(in srgb, var(--color-surface-copy) 7%, transparent); }
+.bg-paper\/12 { background-color: color-mix(in srgb, var(--color-surface-copy) 10%, transparent); }
+.bg-paper\/30 { background-color: color-mix(in srgb, var(--color-surface-copy) 24%, transparent); }
+.bg-paper\/40 { background-color: color-mix(in srgb, var(--color-surface-copy) 32%, transparent); }
+.bg-paper\/45 { background-color: color-mix(in srgb, var(--color-surface-copy) 36%, transparent); }
+.bg-paper\/55 { background-color: color-mix(in srgb, var(--color-surface-copy) 44%, transparent); }
+
+@media (prefers-color-scheme: light) {
+  .text-ink { color: #211d18; }
+  .text-ink\/55 { color: rgb(33 29 24 / 0.7); }
+  .bg-sage { background-color: #a9cbb9; }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-ink: #14110d;
+    --color-ink-soft: #1c1813;
+    --color-paper: #1f1a15;
+    --color-paper-card: #252019;
+    --color-paper-deep: #2b251d;
+    --color-paper-hover: #302920;
+    --color-paper-line: #44392d;
+    --color-paper-edge: #5b4d3c;
+    --color-paper-muted: #a99e8b;
+    --color-ink-body: #d0c7b7;
+    --color-ink-muted: #b8ae9d;
+    --color-ink-faint: #9f9585;
+    --color-accent: #e0a269;
+    --color-accent-fill: #c78345;
+    --color-accent-case: #dc754e;
+    --color-sage: #90baa5;
+    --color-body-foreground: #f4eddf;
+    --color-surface-copy: #f4eddf;
+    --color-surface-line: #f4eddf;
+    --color-focus: #a8d2bd;
+    --shadow-card: 0 22px 64px -34px rgb(0 0 0 / 0.86);
+  }
+
+  .bg-paper,
+  .bg-paper-card,
+  .bg-paper-deep,
+  [data-surface="paper"] {
+    --color-accent: #e0a269;
+  }
+
+  /* In dark mode the former paper sections become warm charcoal surfaces.
+     Their legacy `text-ink` utilities therefore resolve to the light copy
+     color, except for labels sitting directly on filled accent controls. */
+  .text-ink:not(.theme-dark *) { color: #f4eddf; }
+  .bg-accent-fill.text-ink,
+  .bg-sage.text-ink { color: #17120e; }
+  .border-ink:not(.theme-dark *) { border-color: #f4eddf; }
+  .border-ink\/18:not(.theme-dark *) { border-color: rgb(244 237 223 / 0.3); }
+  .border-ink\/20:not(.theme-dark *) { border-color: rgb(244 237 223 / 0.32); }
+  .border-ink\/70:not(.theme-dark *) { border-color: rgb(244 237 223 / 0.72); }
+}
+
+.bg-paper-card {
+  box-shadow: var(--shadow-card);
 }
 
 [data-line] {

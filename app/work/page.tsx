@@ -6,7 +6,7 @@ import { projects } from "@/data/projects";
 
 export const metadata: Metadata = {
   title: "Work",
-  description: "Selected websites designed and developed by Vanto, an independent studio working worldwide.",
+  description: "Selected websites and digital products shaped by Vanto from strategy and design through development.",
 };
 
 export default function WorkPage() {
@@ -16,7 +16,7 @@ export default function WorkPage() {
         eyebrow="THE WORK"
         note={`${String(projects.length).padStart(2, "0")} SELECTED PROJECTS`}
         lines={[<>Selected websites.</>, <>Built with <em className="text-accent">intent.</em></>]}
-        intro="Five independent concepts, each taken from strategy through to a working build. Every case study is explicit about its status and explains the audience, decisions, and experience behind the work."
+        intro="Selected work and self-initiated concept studies, each taken from strategy through to a working build. Every case study makes its status clear and explains the decisions behind the experience."
       />
       <WorkGallery />
     </PageShell>

@@ -8,13 +8,12 @@
 export const site = {
   name: "Vanto",
   url: "https://vanto.studio",
-  founder: "Alex Morgan",
   /** Studio contact address. */
   email: "hello@vanto.studio",
   /** Digits only, in international format — used to build wa.me links. */
   whatsapp: "254708184850",
   description:
-    "Independent website strategy, design, and development for professional firms, service businesses, and growing brands.",
+    "A digital strategy, design, and development studio creating clear, distinctive websites for ambitious businesses.",
 } as const;
 
 export const mailto = `mailto:${site.email}`;

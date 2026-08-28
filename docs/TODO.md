@@ -86,7 +86,7 @@ section starts working.
 
 **A caution on the number itself.** A very low floor (single-digit thousands
 KES) will actively work against the rest of the site. Everything about the
-positioning — editorial typography, "considered", founder-led, direct access —
+positioning — editorial typography, "considered", senior attention, clear ownership —
 signals a studio that charges properly. A floor far below that reads as a
 contradiction, and in practice it attracts clients who negotiate hardest and
 respect the process least. Build time falling does not mean the *value* fell:

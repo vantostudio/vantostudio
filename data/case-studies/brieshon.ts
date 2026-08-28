@@ -5,8 +5,8 @@ export const brieshon: Project = {
   index: "01",
   category: "DIGITAL COMMERCE",
   sector: "Commerce",
-  status: "FOUNDER-OWNED PRODUCT · LIVE",
-  kind: "founder",
+  status: "STUDIO-BUILT PRODUCT · LIVE",
+  kind: "product",
   name: "Brieshon",
   domain: "brieshon.co.ke",
   href: "https://brieshon.co.ke",
@@ -17,14 +17,14 @@ export const brieshon: Project = {
   description:
     "A multi-vendor marketplace focused on apparel, designer clothing, bags, accessories, and wearable goods from independent sellers.",
   homeDescription:
-    "A founder-owned, multi-vendor fashion marketplace designed around trusted discovery, seller onboarding, and commerce across Kenya.",
+    "A studio-built, multi-vendor fashion marketplace designed around trusted discovery, seller onboarding, and commerce across Kenya.",
   tags: ["Product strategy", "UX/UI", "Development"],
   facts: [["Two-sided", "BUYER + SELLER PRODUCT"], ["Live", "ON BRIESHON.CO.KE"]],
   tagline: "A trusted fashion marketplace, built for Kenya.",
   intro:
-    "Brieshon is Vanto’s founder-owned commerce product: a live marketplace where shoppers can discover fashion from multiple sellers, and where independent stores can build a more structured digital presence beyond social feeds and direct messages.",
+    "Brieshon is Vanto’s studio-built commerce product: a live marketplace where shoppers can discover fashion from multiple sellers, and where independent stores can build a more structured digital presence beyond social feeds and direct messages.",
   meta: [
-    ["PROJECT", "Founder-owned product"],
+    ["PROJECT", "Studio-built product"],
     ["ROLE", "Strategy, UX/UI & development"],
     ["TYPE", "Multi-vendor marketplace"],
     ["STATUS", "Live beta"],

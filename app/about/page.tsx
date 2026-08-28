@@ -7,7 +7,7 @@ import { buildSteps, values } from "@/data/about";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Meet Alex Morgan, the independent designer and developer behind Vanto, working with clients worldwide.",
+  description: "Vanto is a digital strategy, design, and development studio creating clear, distinctive websites for ambitious businesses.",
 };
 
 export default function AboutPage() {
@@ -15,8 +15,8 @@ export default function AboutPage() {
     <PageShell footerProps={{ headline: "Something you’re proud to share." }}>
       <PageHero
         eyebrow="ABOUT"
-        note="ALEX MORGAN — FOUNDER"
-        lines={[<>Independent by design.</>, <>Close to the <em className="text-accent">work.</em></>]}
+        note="STRATEGY · DESIGN · TECHNOLOGY"
+        lines={[<>Different disciplines.</>, <>One clear <em className="text-accent">direction.</em></>]}
         width="15ch"
       />
       <section className="pb-[clamp(72px,10vw,140px)]">
@@ -24,28 +24,28 @@ export default function AboutPage() {
           <aside data-fade className="border-y border-paper/14 py-6">
             <p className="m-0 font-mono text-[10px] tracking-[0.13em] text-paper/42">STUDIO DETAILS</p>
             <dl className="mt-7 grid gap-5 text-sm sm:grid-cols-3 lg:grid-cols-1">
-              <div><dt className="font-mono text-[10px] tracking-[0.1em] text-accent">FOUNDER</dt><dd className="mt-1.5 text-paper/72">Alex Morgan</dd></div>
-              <div><dt className="font-mono text-[10px] tracking-[0.1em] text-accent">DISCIPLINES</dt><dd className="mt-1.5 text-paper/72">Strategy, design, development</dd></div>
-              <div><dt className="font-mono text-[10px] tracking-[0.1em] text-accent">CLIENTS</dt><dd className="mt-1.5 text-paper/72">Worldwide · Remote-first</dd></div>
+              <div><dt className="font-mono text-[10px] tracking-[0.1em] text-accent">FOCUS</dt><dd className="mt-1.5 text-paper/72">Business websites and digital products</dd></div>
+              <div><dt className="font-mono text-[10px] tracking-[0.1em] text-accent">APPROACH</dt><dd className="mt-1.5 text-paper/72">Strategy through launch</dd></div>
+              <div><dt className="font-mono text-[10px] tracking-[0.1em] text-accent">REACH</dt><dd className="mt-1.5 text-paper/72">Nairobi · Working worldwide</dd></div>
             </dl>
           </aside>
           <div data-fade className="max-w-[760px]">
-            <p className="mb-5 font-mono text-xs tracking-[0.12em] text-accent">ALEX MORGAN — FOUNDER, DESIGNER & DEVELOPER</p>
+            <p className="mb-5 font-mono text-xs tracking-[0.12em] text-accent">THE STUDIO</p>
             <p className="m-0 max-w-[24ch] font-serif text-[clamp(28px,3.6vw,50px)] leading-[1.18] tracking-[-0.02em]">
-              Vanto is an independent web design and development studio working with clients worldwide.
+              Vanto is a digital studio for businesses that need clarity, distinction, and a website built to perform.
             </p>
             <p className="mt-5 text-[clamp(15px,1.3vw,18px)] leading-[1.7] text-paper/70">
-              I work with professional firms, service businesses, and growing brands that need a website to communicate their value with more clarity and confidence. Every project brings strategy, design, and development into one focused process.
+              We work across positioning, content structure, UX/UI design, and development. Keeping those decisions connected creates websites that communicate better, feel more considered, and remain faithful to the business behind them.
             </p>
             <p className="mt-5 text-[clamp(15px,1.3vw,18px)] leading-[1.7] text-paper/70">
-              You work directly with me throughout. That keeps communication clear, decisions close to the work, and the finished experience consistent from the first idea to the final build.
+              Every engagement has clear ownership and a team shaped around the actual scope. Clients stay close to the people doing the work, while specialist collaborators join when the brief needs deeper expertise.
             </p>
           </div>
         </Container>
       </section>
       <section className="bg-paper py-[clamp(72px,10vw,140px)] text-ink">
         <Container>
-          <p data-fade className="mb-[clamp(32px,4vw,52px)] font-mono text-xs tracking-[0.14em] text-accent">( HOW I WORK )</p>
+          <p data-fade className="mb-[clamp(32px,4vw,52px)] font-mono text-xs tracking-[0.14em] text-accent">( OUR PRINCIPLES )</p>
           <div className="grid grid-cols-[repeat(auto-fit,minmax(min(240px,100%),1fr))] gap-[clamp(24px,3vw,44px)]">
             {values.map(([number, title, description]) => (
               <article data-fade key={number} className="flex flex-col gap-3 border-t border-paper-line pt-[22px]">
@@ -81,7 +81,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-[1000px] px-[clamp(20px,5vw,56px)]">
           <p data-fade className="mb-7 font-mono text-xs tracking-[0.14em] text-sage">( AFTER LAUNCH )</p>
           <p data-fade className="m-0 font-serif text-[clamp(26px,4vw,54px)] leading-[1.22] tracking-[-0.015em] text-balance">
-            The goal is a website you understand, own, and can use confidently—not a black box that becomes somebody else’s problem after launch.
+            The goal is a website your team understands, owns, and can keep useful—not a black box that becomes somebody else’s problem after launch.
           </p>
         </div>
       </section>

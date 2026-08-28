@@ -24,7 +24,7 @@ export const advocateDossier: Project = {
   intro:
     "Advocate Dossier explores how someone with credentials but no track record presents themselves credibly. Instead of compressing a career into one scrolling page, it treats each area—academic journey, moot court, research, experience, practice interests, recognition, résumé—as its own filed section that can grow as the career does.",
   whyBuilt:
-    "Early-career professionals get handed the same one-page template as people with twenty years behind them, and it flatters neither. I wanted to find out what a personal site looks like when it is designed to be added to for a decade rather than replaced every two years, so I built the structure and lived with it.",
+    "Early-career professionals often get handed the same one-page template as people with twenty years behind them, and it flatters neither. We built Advocate Dossier to explore what a personal site becomes when it is designed to grow for a decade rather than be replaced every two years.",
   disclaimer:
     "Independent concept project. The individual, institutions, awards, publications, and contact details are illustrative and were created to demonstrate Vanto’s approach.",
   meta: [

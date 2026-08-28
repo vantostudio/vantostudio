@@ -8,7 +8,7 @@ export function HomeProcess() {
         <div data-pin-viewport className="flex min-h-svh flex-col justify-center overflow-hidden py-[clamp(64px,10vh,120px)]">
           <Container className="mb-10 flex flex-wrap items-end justify-between gap-6">
             <h2 className="m-0 max-w-[16ch] font-serif text-[clamp(32px,4.5vw,64px)] tracking-[-0.025em]">
-              A clear path from first conversation to launch
+              From ambiguity to launch, without losing the thread.
             </h2>
             <span className="font-mono text-xs tracking-[0.12em] text-paper/60">
               <span className="md:hidden">( SWIPE TO EXPLORE → )</span>

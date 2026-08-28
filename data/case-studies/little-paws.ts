@@ -24,7 +24,7 @@ export const littlePaws: Project = {
   intro:
     "Little Paws explores a trust-sensitive buying journey: prospective owners want to understand the animals, their care, and the people raising them before beginning a conversation. The concept turns that emotional decision into a calm, transparent digital experience.",
   whyBuilt:
-    "I wanted to test whether a catalogue could stay warm. Most inventory interfaces flatten into filters and grids, which is fine for parts and wrong for something people choose with their families. A puppy nursery was the sharpest version of that problem I could find, so I designed it end to end.",
+    "We wanted to test whether a catalogue could stay warm. Most inventory interfaces flatten into filters and grids, which works for parts and feels wrong for something people choose with their families. A puppy nursery gave us the clearest version of that problem to design end to end.",
   disclaimer:
     "Independent concept project. The brand narrative and business details are illustrative and were created to demonstrate Vanto’s strategy, design, and development approach.",
   meta: [

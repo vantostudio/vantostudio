@@ -24,7 +24,7 @@ export const amaniKibwana: Project = {
   intro:
     "Amani Kibwana explores a different legal-services proposition from a traditional firm: direct access to one senior advocate, framed for founders and growing companies that still expect structured, commercially aware counsel.",
   whyBuilt:
-    "Independent professionals are routinely sold design borrowed from institutions three hundred times their size. I built this to argue the opposite case—that a solo advocate is better served by specificity and direct access—and to have something concrete to show the next one who asks.",
+    "Independent professionals are routinely sold design borrowed from institutions three hundred times their size. We built this concept to make the opposite case: a solo advocate is better served by specificity and direct access than by pretending to be a larger firm.",
   disclaimer:
     "Independent concept project. The advocate, organisations, testimonials, metrics, and business claims shown in the prototype are illustrative—not client claims or measured outcomes.",
   meta: [

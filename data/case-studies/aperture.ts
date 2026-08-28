@@ -23,7 +23,7 @@ export const aperture: Project = {
   intro:
     "Aperture asks what a photographer’s website becomes when the work is given room instead of a grid. The concept treats the site as a sequence of rooms—each chapter with its own light and tempo—so that browsing feels closer to walking an exhibition than scanning thumbnails.",
   whyBuilt:
-    "Creative-sector briefs keep arriving with the same assumption: more work on screen means more persuasion. I wanted to test the opposite, so I built a photography site as a paced exhibition instead of a grid and found out where restraint stops helping.",
+    "Creative-sector briefs often begin with the assumption that more work on screen means more persuasion. We built Aperture to test the opposite: a photography site paced like an exhibition rather than presented as a dense grid.",
   disclaimer:
     "Independent concept project. The photographer, studio, client stories, and contact details are illustrative and were created to demonstrate Vanto’s approach.",
   meta: [

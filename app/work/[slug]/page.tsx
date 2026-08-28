@@ -40,7 +40,7 @@ export default async function CaseStudyPage({ params }: Props) {
             <p data-hero-fade className="mt-[clamp(24px,3vw,36px)] max-w-[22ch] font-serif text-[clamp(22px,2.8vw,40px)] leading-[1.15] tracking-[-0.02em] text-paper/90 italic">{project.tagline}</p>
             <p data-hero-fade className="mt-[26px] max-w-[52ch] text-[clamp(16px,1.5vw,19px)] leading-[1.65] text-paper/72">{project.intro}</p>
             <div data-hero-fade className="mt-7 flex flex-wrap items-center gap-3">
-              <span className={`rounded-md border px-4 py-2 font-mono text-[11px] tracking-[0.1em] ${project.kind === "founder" ? "border-sage/50 text-sage" : "border-accent/60 text-accent"}`}>
+              <span className={`rounded-md border px-4 py-2 font-mono text-[11px] tracking-[0.1em] ${project.kind === "product" ? "border-sage/50 text-sage" : "border-accent/60 text-accent"}`}>
                 {project.status}
               </span>
               <a href={project.href} target="_blank" rel="noreferrer" data-cursor="Visit" className="border-b border-accent pb-1 text-sm font-semibold text-paper/85">
@@ -49,7 +49,7 @@ export default async function CaseStudyPage({ params }: Props) {
             </div>
             {project.whyBuilt && (
               <div data-hero-fade className="mt-8 max-w-[70ch] rounded-2xl border border-paper/12 bg-ink-soft/60 p-5">
-                <p className="m-0 font-mono text-[10px] tracking-[0.13em] text-sage">( WHY I BUILT THIS )</p>
+                <p className="m-0 font-mono text-[10px] tracking-[0.13em] text-sage">( WHY WE BUILT THIS )</p>
                 <p className="mt-2.5 mb-0 text-[15px] leading-[1.65] text-paper/72">{project.whyBuilt}</p>
               </div>
             )}
@@ -124,7 +124,7 @@ export default async function CaseStudyPage({ params }: Props) {
         <section className="border-t border-paper/12 bg-ink py-[clamp(72px,11vw,150px)] text-center text-paper">
           <div className="mx-auto max-w-[1000px] px-[clamp(20px,5vw,56px)]">
             <p data-fade className="mb-[clamp(28px,4vw,44px)] font-mono text-xs tracking-[0.14em] text-sage">
-              ( {project.kind === "founder" ? "CURRENT STATE" : "WHAT IT DEMONSTRATES"} )
+              ( {project.kind === "product" ? "CURRENT STATE" : "WHAT IT DEMONSTRATES"} )
             </p>
             <blockquote data-fade className="m-0 font-serif text-[clamp(28px,4.2vw,60px)] leading-[1.15] tracking-[-0.02em] text-balance">{project.outcome}</blockquote>
           </div>

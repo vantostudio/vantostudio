@@ -2,7 +2,7 @@ export const values = [
   ["01", "Clarity before decoration", "The work starts by understanding the business, the audience, and what the website needs to help them do."],
   ["02", "Designed as one system", "Structure, words, visuals, and interaction are considered together so the experience feels coherent on every page."],
   ["03", "Detail without friction", "Motion and craft add character, but never at the expense of speed, accessibility, or a visitor’s next step."],
-  ["04", "Direct collaboration", "The person you speak with is the person responsible for the work, from the first conversation through launch."],
+  ["04", "Clear ownership", "Every project has an accountable lead, focused review points, and decisions kept close to the people doing the work."],
 ] as const;
 
 export const buildSteps = [

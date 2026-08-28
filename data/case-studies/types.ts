@@ -7,7 +7,7 @@ export type Project = {
   category: string;
   sector: ProjectSector;
   status: string;
-  kind: "founder" | "concept";
+  kind: "product" | "concept";
   name: string;
   domain: string;
   href: string;

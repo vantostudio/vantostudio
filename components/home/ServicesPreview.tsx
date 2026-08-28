@@ -10,12 +10,12 @@ export function ServicesPreview() {
           <div className="max-w-[22ch]">
             <p className="mb-[18px] font-mono text-xs tracking-[0.14em] text-accent">( CAPABILITIES )</p>
             <h2 className="m-0 font-serif text-[clamp(36px,5.5vw,76px)] leading-[0.98] tracking-[-0.03em]">
-              One partner, from first question to launch.
+              One connected team. Every decision carried through.
             </h2>
           </div>
           <div className="md:justify-self-end">
             <p className="mb-5 max-w-[42ch] text-[15px] leading-[1.65] text-ink-muted">
-              Direction, design, and development stay connected, so decisions survive the journey from the first conversation to the live website.
+              Strategy, design, and development stay in one conversation, so the strongest ideas survive the journey from brief to live product.
             </p>
             <Link data-cursor="View" href="/services" className="border-b-[1.5px] border-accent pb-1 text-[15px] font-semibold text-accent">
               Explore all services →

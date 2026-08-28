@@ -18,10 +18,10 @@ const groups: {
   layout: "feature" | "grid";
 }[] = [
   {
-    label: "FOUNDER-OWNED PRODUCT",
+    label: "STUDIO-BUILT PRODUCT",
     title: "Built for the real world.",
     note: "A live product conceived, designed, developed, and operated by Vanto.",
-    projects: projects.filter((project) => project.kind === "founder"),
+    projects: projects.filter((project) => project.kind === "product"),
     layout: "feature",
   },
   {

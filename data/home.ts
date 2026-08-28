@@ -1,59 +1,63 @@
 export const capabilities = [
   {
     number: "01",
-    name: "Strategy & web design",
-    note: "A clear direction for what the site needs to say, show, and help people do.",
-    details: ["Discovery", "Content structure", "UX/UI design"],
+    name: "Strategy & direction",
+    note: "A sharper position, clearer priorities, and a website plan grounded in how your business needs to grow.",
+    details: ["Discovery", "Positioning", "Content strategy"],
   },
   {
     number: "02",
-    name: "Website development",
-    note: "Responsive, accessible builds where performance and interaction receive equal care.",
-    details: ["Frontend", "CMS & integrations", "Quality assurance"],
+    name: "Experience design",
+    note: "A distinctive digital system that makes your offer easier to understand, trust, and act on.",
+    details: ["UX/UI design", "Art direction", "Prototyping"],
   },
   {
     number: "03",
-    name: "Ongoing support",
-    note: "Practical help keeping the website accurate, reliable, and useful after launch.",
-    details: ["Maintenance", "Content updates", "Improvements"],
+    name: "Development & growth",
+    note: "A fast, accessible build with the foundations to launch confidently and improve over time.",
+    details: ["Development", "Integrations", "Ongoing support"],
   },
 ] as const;
 
 export const homeSteps = [
   {
     number: "01",
-    title: "Discover",
+    title: "Define the opportunity",
     description:
-      "We align on the audience, business goals, content, and project scope before design begins.",
+      "We align on the audience, offer, business goals, and decisions the website needs to support.",
     client: "You share context, priorities, and existing material.",
-    output: "Direction, responsibilities, schedule, and scope.",
+    output: "A focused brief, direction, schedule, and scope.",
   },
   {
     number: "02",
-    title: "Design & build",
+    title: "Shape the experience",
     description:
-      "Structure, visual design, interaction, and development progress as one connected system.",
+      "Content structure, visual design, interaction, and development move forward as one connected system.",
     client: "You review the work at clear, focused checkpoints.",
-    output: "Responsive designs and a working website.",
+    output: "A responsive design system and working website.",
   },
   {
     number: "03",
-    title: "Launch & improve",
+    title: "Launch with confidence",
     description:
-      "The website is tested, refined, launched on your domain, and prepared for what comes next.",
+      "The website is tested, refined, launched on your domain, and prepared to evolve with the business.",
     client: "You approve final content and the launch-ready experience.",
-    output: "Live site, handover, and an optional support plan.",
+    output: "A live site, clear handover, and optional growth support.",
   },
 ] as const;
 
 export const faqs = [
+  [
+    "Who will work on my project?",
+    "Every project has a clear lead responsible for the work and communication from scope through launch. The core team stays hands-on, and any specialist collaborators are introduced according to the brief—not hidden behind layers of account management.",
+  ],
   [
     "How long does a website project take?",
     "A focused website can take two to four weeks; a larger or more integrated website usually takes four to eight. The schedule depends on content readiness, functionality, and feedback—not an arbitrary deadline. Your proposal includes a clear timeline.",
   ],
   [
     "Can you help with the words and images?",
-    "Yes. Page structure, messaging priorities, and content direction are part of the process. Full copywriting, photography, illustration, or video production can be added to the scope when needed. If you already have material, Vanto helps decide what to keep, improve, or replace.",
+    "Yes. Messaging priorities, page structure, and content direction are part of the process. Copywriting, photography, illustration, or video can be included when needed. If you already have material, we help decide what to keep, improve, or replace.",
   ],
   [
     "Who owns the website and domain?",

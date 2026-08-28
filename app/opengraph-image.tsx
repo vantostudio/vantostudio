@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Vanto — Independent website strategy, design, and development";
+export const alt = "Vanto — Websites that make good businesses easier to choose";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -50,33 +50,33 @@ export default async function Image() {
             color: "rgba(244,237,223,0.55)",
           }}
         >
-          <span>INDEPENDENT DESIGN &amp; DEVELOPMENT STUDIO</span>
-          <span>WORKING WORLDWIDE</span>
+          <span>DIGITAL STRATEGY &amp; DESIGN STUDIO</span>
+          <span>NAIROBI · WORKING WORLDWIDE</span>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div
             style={{
               display: "flex",
-              fontSize: 92,
+              fontSize: 82,
               lineHeight: 1.04,
               letterSpacing: -3,
               fontFamily: font ? "Instrument Serif" : undefined,
             }}
           >
-            A website worth trusting
+            Websites that make good
           </div>
           <div
             style={{
               display: "flex",
-              fontSize: 92,
+              fontSize: 82,
               lineHeight: 1.04,
               letterSpacing: -3,
               color: "#d39150",
               fontFamily: font ? "Instrument Serif" : undefined,
             }}
           >
-            before you say a word.
+            businesses easier to choose.
           </div>
         </div>
 
