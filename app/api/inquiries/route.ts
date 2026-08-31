@@ -1,3 +1,4 @@
+import { track } from "@vercel/analytics/server";
 import { businessOptions, scopeOptions, timeOptions } from "@/data/contact";
 import { site } from "@/data/site";
 
@@ -108,6 +109,15 @@ export async function POST(request: Request) {
   if (!response.ok) {
     return Response.json({ error: "The enquiry could not be delivered." }, { status: 502 });
   }
+
+  await track(
+    "Enquiry Completed",
+    {
+      replyMethod: inquiry.method,
+      scope: inquiry.likelyFit,
+    },
+    { request },
+  ).catch(() => undefined);
 
   return Response.json({ ok: true });
 }

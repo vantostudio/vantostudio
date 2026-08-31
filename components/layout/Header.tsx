@@ -86,13 +86,16 @@ export function Header() {
             href={contact ? mailto : "/contact"}
             data-cursor={contact ? "Email" : "Start"}
             data-magnetic={!contact ? "" : undefined}
+            data-analytics-event={contact ? "Email Handoff" : "Contact Clicked"}
+            data-analytics-location="header"
+            data-analytics-label={contact ? "Email Vanto" : "Discuss your website"}
             className={`max-[440px]:hidden ${
               contact
                 ? "rounded-[10px] border-[1.5px] border-paper/30 px-5 py-2.5 text-sm font-semibold hover:border-paper"
                 : "rounded-[10px] bg-accent-fill px-5 py-[11px] text-sm font-semibold text-ink transition-transform duration-300"
             }`}
           >
-            {contact ? "Email instead" : "Start a project"}
+            {contact ? "Email instead" : "Discuss your website"}
           </Link>
           <button
             type="button"
@@ -167,9 +170,12 @@ export function Header() {
                 <Link
                   href={contact ? mailto : "/contact"}
                   onClick={() => setMenuOpen(false)}
+                  data-analytics-event={contact ? "Email Handoff" : "Contact Clicked"}
+                  data-analytics-location="mobile menu"
+                  data-analytics-label={contact ? "Email Vanto" : "Discuss your website"}
                   className="inline-flex min-h-11 items-center rounded-[10px] bg-accent-fill px-4 text-sm font-semibold text-ink transition-transform duration-200 hover:-translate-y-0.5"
                 >
-                  {contact ? "Email us" : "Start here"}
+                  {contact ? "Email us" : "Discuss yours"}
                 </Link>
               </div>
             </nav>

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { Instrument_Sans, Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { ConversionAnalytics } from "@/components/analytics/ConversionAnalytics";
 import { Grain } from "@/components/ui/Grain";
 import { SiteEffects } from "@/components/motion/SiteEffects";
 import { RouteScrollReset } from "@/components/motion/RouteScrollReset";
@@ -77,7 +78,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="en" className={`${sans.variable} ${serif.variable} ${mono.variable}`}>
+    <html lang="en" data-scroll-behavior="smooth" className={`${sans.variable} ${serif.variable} ${mono.variable}`}>
       <body>
         <script
           type="application/ld+json"
@@ -88,6 +89,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
         <RouteScrollReset />
         <SiteEffects />
         <Grain />
+        <ConversionAnalytics />
         <Analytics />
       </body>
     </html>

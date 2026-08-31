@@ -1,5 +1,6 @@
 import { Container } from "@/components/ui/Layout";
 import { ButtonLink } from "@/components/ui/Button";
+import { whatsappLink } from "@/data/site";
 import { HeroBackdrop } from "./HeroBackdrop";
 
 const capabilityRail = [
@@ -27,15 +28,45 @@ export function HomeHero() {
           </h1>
           <div data-hero-fade className="mt-[clamp(32px,5vh,60px)] flex flex-wrap items-end justify-between gap-[clamp(24px,4vw,56px)]">
             <p className="m-0 max-w-[42ch] text-[clamp(16px,1.5vw,20px)] leading-[1.6] text-paper/88">
-              Vanto turns complex offers into clear, distinctive digital experiences—bringing strategy,
-              design, and development together from the first question to launch.
+              Vanto helps professionals and growing businesses turn valuable but hard-to-explain offers
+              into clear websites that build trust and make it easier for people to enquire, book, or buy.
             </p>
-            <div className="flex flex-wrap items-center gap-3.5">
-              <ButtonLink data-magnetic data-cursor="View" href="#work" variant="light" size="lg" className="transition-transform duration-300">
-                See selected work
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2.5">
+              <ButtonLink
+                data-magnetic
+                data-cursor="Talk"
+                data-analytics-event="Contact Clicked"
+                data-analytics-location="home hero"
+                data-analytics-label="Discuss your website"
+                href="/contact"
+                variant="light"
+                size="lg"
+                className="transition-transform duration-300"
+              >
+                Discuss your website
               </ButtonLink>
-              <ButtonLink data-cursor="Talk" href="/contact" variant="text" className="text-base">
-                Tell us what you’re building →
+              <ButtonLink
+                data-cursor="View"
+                data-analytics-event="Work Gallery Opened"
+                data-analytics-location="home hero"
+                href="#work"
+                variant="text"
+                className="min-h-11 text-base"
+              >
+                See selected work →
+              </ButtonLink>
+              <ButtonLink
+                data-cursor="Chat"
+                data-analytics-event="WhatsApp Handoff"
+                data-analytics-location="home hero"
+                data-analytics-label="Quick WhatsApp chat"
+                href={whatsappLink("Hello Vanto, I’d like to discuss my website.")}
+                target="_blank"
+                variant="sage"
+                size="sm"
+                className="min-h-11 sm:hidden"
+              >
+                Quick WhatsApp chat ↗
               </ButtonLink>
             </div>
           </div>

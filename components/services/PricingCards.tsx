@@ -36,6 +36,9 @@ export function PricingCards() {
           <Link
             href={`/contact?scope=${plan.scope}`}
             data-cursor="Start"
+            data-analytics-event="Contact Clicked"
+            data-analytics-location="pricing card"
+            data-analytics-label={plan.name}
             className={`mt-auto rounded-[10px] border-[1.5px] p-3 text-center text-sm font-semibold ${
               plan.dark
                 ? "border-sage bg-sage text-ink"

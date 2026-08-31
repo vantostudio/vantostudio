@@ -43,7 +43,17 @@ export default async function CaseStudyPage({ params }: Props) {
               <span className={`rounded-md border px-4 py-2 font-mono text-[11px] tracking-[0.1em] ${project.kind === "product" ? "border-sage/50 text-sage" : "border-accent/60 text-accent"}`}>
                 {project.status}
               </span>
-              <a href={project.href} target="_blank" rel="noreferrer" data-cursor="Visit" className="border-b border-accent pb-1 text-sm font-semibold text-paper/85">
+              <a
+                href={project.href}
+                target="_blank"
+                rel="noreferrer"
+                data-cursor="Visit"
+                data-analytics-event="Work Clicked"
+                data-analytics-location="case study hero"
+                data-analytics-project={project.name}
+                data-analytics-destination="live website"
+                className="border-b border-accent pb-1 text-sm font-semibold text-paper/85"
+              >
                 {project.linkLabel} ↗
               </a>
             </div>
@@ -131,13 +141,33 @@ export default async function CaseStudyPage({ params }: Props) {
         </section>
         <footer className="border-t border-paper/12 bg-ink pt-[clamp(56px,8vw,112px)] text-paper">
           <Container>
-            <Link data-work data-cursor="Next" href={`/work/${next.slug}`} className="flex flex-wrap items-end justify-between gap-6 border-b border-paper/12 pb-[clamp(48px,7vw,96px)]">
+            <Link
+              data-work
+              data-cursor="Next"
+              data-analytics-event="Work Clicked"
+              data-analytics-location="next case study"
+              data-analytics-project={next.name}
+              data-analytics-destination="case study"
+              href={`/work/${next.slug}`}
+              className="flex flex-wrap items-end justify-between gap-6 border-b border-paper/12 pb-[clamp(48px,7vw,96px)]"
+            >
               <span className="flex flex-col gap-3.5"><small className="font-mono text-xs tracking-[0.14em] text-paper/50">( NEXT CASE STUDY )</small><strong className="font-serif text-[clamp(36px,6vw,88px)] font-normal leading-[0.96] tracking-[-0.03em]">{next.name}</strong></span>
               <span className="text-[15px] font-semibold text-accent">Read it →</span>
             </Link>
             <div className="flex flex-col items-start gap-[26px] py-[clamp(56px,8vw,112px)]">
               <h2 data-fade className="m-0 max-w-[15ch] font-serif text-[clamp(40px,7vw,104px)] leading-[0.96] tracking-[-0.03em] text-balance">Have a problem worth designing around?</h2>
-              <Link data-fade data-magnetic data-cursor="Start" href="/contact" className="rounded-[10px] bg-accent-fill px-[34px] py-[17px] text-base font-semibold text-ink">Start a project</Link>
+              <Link
+                data-fade
+                data-magnetic
+                data-cursor="Start"
+                data-analytics-event="Contact Clicked"
+                data-analytics-location="case study footer"
+                data-analytics-label="Discuss your website"
+                href="/contact"
+                className="rounded-[10px] bg-accent-fill px-[34px] py-[17px] text-base font-semibold text-ink"
+              >
+                Discuss your website
+              </Link>
             </div>
             <div className="flex flex-wrap justify-between gap-4 border-t border-paper/12 py-6 font-mono text-xs text-paper-muted"><span>© 2026 VANTO</span><span>WORKING WORLDWIDE</span></div>
           </Container>

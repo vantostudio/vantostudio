@@ -11,7 +11,7 @@ import { oderaPartners } from "./case-studies/odera-partners";
 
 export type { Project, ProjectSector, ProjectSlug } from "./case-studies/types";
 
-export const projects = [kairos, aperture, littlePaws, oderaPartners, amaniKibwana, advocateDossier];
+export const projects = [kairos, aperture, advocateDossier, littlePaws, oderaPartners, amaniKibwana];
 
 export function getProject(slug: string) {
   return projects.find((project) => project.slug === slug);

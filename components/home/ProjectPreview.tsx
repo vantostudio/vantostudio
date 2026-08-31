@@ -17,13 +17,27 @@ export function ProjectPreview() {
               Different businesses. Clear digital stories.
             </h2>
           </div>
-          <Link href="/work" data-cursor="View" className="border-b-[1.5px] border-accent pb-1 text-[15px] font-semibold text-accent">
+          <Link
+            href="/work"
+            data-cursor="View"
+            data-analytics-event="Work Gallery Opened"
+            data-analytics-location="home selected work"
+            className="border-b-[1.5px] border-accent pb-1 text-[15px] font-semibold text-accent"
+          >
             View all {projects.length} projects →
           </Link>
         </div>
 
         <article data-work>
-          <Link href={`/work/${featured.slug}`} data-cursor="Open" className="group block">
+          <Link
+            href={`/work/${featured.slug}`}
+            data-cursor="Open"
+            data-analytics-event="Work Clicked"
+            data-analytics-location="home selected work"
+            data-analytics-project={featured.name}
+            data-analytics-destination="case study"
+            className="group block"
+          >
             <BrowserFrame domain={featured.domain} light>
               <div className="aspect-[16/9] overflow-hidden">
                 <ProjectMotion video={featured.video} poster={featured.image} alt={featured.imageAlt} />
@@ -42,7 +56,15 @@ export function ProjectPreview() {
         <div className="mt-[clamp(40px,6vw,72px)] grid gap-[clamp(28px,4vw,52px)] md:grid-cols-2">
           {supporting.map((project) => (
             <article data-work key={project.slug}>
-              <Link href={`/work/${project.slug}`} data-cursor="Open" className="group block">
+              <Link
+                href={`/work/${project.slug}`}
+                data-cursor="Open"
+                data-analytics-event="Work Clicked"
+                data-analytics-location="home selected work"
+                data-analytics-project={project.name}
+                data-analytics-destination="case study"
+                className="group block"
+              >
                 <BrowserFrame domain={project.domain} light>
                   <div className="aspect-[16/9] overflow-hidden">
                     <ProjectMotion video={project.video} poster={project.image} alt={project.imageAlt} sizes="(max-width: 768px) 100vw, 50vw" />

@@ -12,7 +12,7 @@ export type FooterProps = {
 export function Footer({
   eyebrow = "LET’S BUILD",
   headline = "Something you’re proud to share.",
-  buttonLabel = "Start a project",
+  buttonLabel = "Discuss your website",
 }: FooterProps) {
   return (
     <footer id="contact" className="border-t border-paper/12 bg-ink text-paper">
@@ -27,6 +27,9 @@ export function Footer({
               href="/contact"
               data-magnetic
               data-cursor="Start"
+              data-analytics-event="Contact Clicked"
+              data-analytics-location="footer"
+              data-analytics-label={buttonLabel}
               size="lg"
               className="px-[34px] py-[17px] transition-transform duration-300"
             >
@@ -52,8 +55,22 @@ export function Footer({
           </div>
           <div className="flex min-w-0 flex-col gap-3 md:col-span-3">
             <span className="mb-1 font-mono text-[10px] tracking-[0.14em] text-sage">CONTACT</span>
-            <Link href={mailto} className="truncate text-paper/80 transition-colors hover:text-paper">{site.email}</Link>
-            <Link href={whatsappLink("Hello Vanto, I’d like to discuss a project.")} className="text-paper/80 transition-colors hover:text-paper">
+            <Link
+              href={mailto}
+              data-analytics-event="Email Handoff"
+              data-analytics-location="footer"
+              data-analytics-label="Email Vanto"
+              className="truncate text-paper/80 transition-colors hover:text-paper"
+            >
+              {site.email}
+            </Link>
+            <Link
+              href={whatsappLink("Hello Vanto, I’d like to discuss a project.")}
+              data-analytics-event="WhatsApp Handoff"
+              data-analytics-location="footer"
+              data-analytics-label="WhatsApp"
+              className="text-paper/80 transition-colors hover:text-paper"
+            >
               WhatsApp
             </Link>
           </div>

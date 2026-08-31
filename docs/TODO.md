@@ -45,9 +45,10 @@ to the address that owns the Resend account** — it is not a production fallbac
 The code is wired (`@vercel/analytics`, `<Analytics />` in the root layout) and
 verified working. The dashboard toggle is not flipped.
 
-Project → Analytics → Enable. Free on Hobby: 50,000 events/month, 1-month
-reporting window, and Hobby teams cannot be billed for overage (collection
-pauses instead).
+Project → Analytics → Enable. Page-view analytics are available on Hobby, but
+the custom conversion events wired into the site require a Vercel Pro or
+Enterprise plan. Without that plan, page views still work but the conversion
+event panel will not populate.
 
 ---
 

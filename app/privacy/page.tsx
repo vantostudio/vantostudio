@@ -59,9 +59,11 @@ const sections: { heading: string; body: ReactNode }[] = [
     heading: "Analytics",
     body: (
       <>
-        This site uses Vercel Web Analytics to count page views. It is cookieless, stores
-        nothing on your device, and does not build a profile of you or follow you across
-        other websites. It reports which pages are visited, not who visited them.
+        This site uses Vercel Web Analytics to count page views and anonymous actions,
+        such as opening a project, choosing a contact route, starting the project brief,
+        or successfully delivering it. Event labels never include your name, contact
+        details, or form answers. The analytics are cookieless and do not follow you
+        across other websites.
       </>
     ),
   },
@@ -127,8 +129,15 @@ export default function PrivacyPage() {
               </article>
             ))}
             <p className="mt-8 font-mono text-[11px] tracking-[0.1em] text-paper/45">LAST UPDATED — AUGUST 2026</p>
-            <Link href="/contact" data-cursor="Start" className="mt-6 inline-flex border-b-[1.5px] border-accent pb-1 text-[15px] font-semibold text-paper">
-              Start a project →
+            <Link
+              href="/contact"
+              data-cursor="Start"
+              data-analytics-event="Contact Clicked"
+              data-analytics-location="privacy page"
+              data-analytics-label="Discuss your website"
+              className="mt-6 inline-flex border-b-[1.5px] border-accent pb-1 text-[15px] font-semibold text-paper"
+            >
+              Discuss your website →
             </Link>
           </div>
         </Container>

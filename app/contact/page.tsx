@@ -5,8 +5,8 @@ import { Container } from "@/components/ui/Layout";
 import { getScopeSelection } from "@/data/contact";
 
 export const metadata: Metadata = {
-  title: "Start a project",
-  description: "Tell Vanto what you want to build and start a clear conversation about scope, timing, and the right next step.",
+  title: "Discuss your website",
+  description: "Tell Vanto what your website needs to do and get a clear recommendation for the right next step.",
 };
 
 export default async function ContactPage({
@@ -32,12 +32,12 @@ export default async function ContactPage({
         />
         <Container className="grid items-start gap-[clamp(48px,7vw,100px)] lg:grid-cols-[.62fr_1.38fr]">
           <div data-hero-fade className="lg:sticky lg:top-[140px]">
-            <p className="mb-5 font-mono text-xs tracking-[0.14em] text-accent">( START A PROJECT )</p>
+            <p className="mb-5 font-mono text-xs tracking-[0.14em] text-accent">( DISCUSS YOUR WEBSITE )</p>
             <h1 className="m-0 max-w-[11ch] font-serif text-[clamp(44px,6.2vw,88px)] leading-[0.96] tracking-[-0.035em]">
-              Start with the business need.
+              Start with what the website needs to do.
             </h1>
             <p className="mt-7 max-w-[39ch] text-[clamp(15px,1.35vw,18px)] leading-[1.7] text-paper/68">
-              Four short steps give us enough context to understand the opportunity and recommend a useful next conversation.
+              Four short steps give us enough context to recommend a useful next move. No polished brief or technical language required.
             </p>
             <dl className="mt-9 grid gap-4 border-t border-paper/14 pt-5 text-sm sm:grid-cols-2 lg:grid-cols-1">
               <div>

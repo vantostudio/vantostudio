@@ -24,6 +24,10 @@ export function ProjectCard({
       <Link
         href={`/work/${project.slug}`}
         data-cursor="Open"
+        data-analytics-event="Work Clicked"
+        data-analytics-location="work gallery image"
+        data-analytics-project={project.name}
+        data-analytics-destination="case study"
         className={flipped ? "lg:order-2" : ""}
       >
         <BrowserFrame domain={project.domain} light={light}>
@@ -70,12 +74,26 @@ export function ProjectCard({
           <Link
             href={`/work/${project.slug}`}
             data-cursor={compact ? "Read" : "Read"}
+            data-analytics-event="Work Clicked"
+            data-analytics-location="work gallery details"
+            data-analytics-project={project.name}
+            data-analytics-destination="case study"
             className={compact ? "text-[15px] font-semibold text-accent" : "rounded-[10px] bg-accent-fill px-[22px] py-3 text-[15px] font-semibold text-ink"}
           >
             Read the case study →
           </Link>
           {!compact && (
-            <a href={project.href} target="_blank" rel="noreferrer" data-cursor="Visit" className="border-b-[1.5px] border-accent pb-[3px] text-[15px] font-semibold text-paper/85">
+            <a
+              href={project.href}
+              target="_blank"
+              rel="noreferrer"
+              data-cursor="Visit"
+              data-analytics-event="Work Clicked"
+              data-analytics-location="work gallery details"
+              data-analytics-project={project.name}
+              data-analytics-destination="live website"
+              className="border-b-[1.5px] border-accent pb-[3px] text-[15px] font-semibold text-paper/85"
+            >
               {project.linkLabel} ↗
             </a>
           )}

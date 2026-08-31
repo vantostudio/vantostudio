@@ -1,5 +1,6 @@
 "use client";
 
+import { track } from "@vercel/analytics";
 import { useEffect, useId, useMemo, useRef, useState } from "react";
 import {
   businessOptions,
@@ -272,6 +273,10 @@ export function ProjectForm({ initialScope = "" }: { initialScope?: string }) {
   };
 
   const openWhatsApp = () => {
+    track("WhatsApp Handoff", {
+      location: "contact form",
+      scope: recommendation.title,
+    });
     // Opened synchronously inside the click so the popup blocker allows it.
     window.open(whatsappLink(composeMessage("whatsapp")), "_blank", "noopener,noreferrer");
     notifyStudio();
@@ -280,6 +285,10 @@ export function ProjectForm({ initialScope = "" }: { initialScope?: string }) {
     scrollToForm();
   };
   const openEmailApp = () => {
+    track("Email Handoff", {
+      location: "contact form",
+      scope: recommendation.title,
+    });
     const subject = encodeURIComponent(`Project brief — ${brief.name.trim() || "new enquiry"}`);
     window.location.assign(`mailto:${site.email}?subject=${subject}&body=${encodeURIComponent(composeMessage("email"))}`);
     notifyStudio();
@@ -391,7 +400,15 @@ export function ProjectForm({ initialScope = "" }: { initialScope?: string }) {
   }
 
   return (
-    <form ref={formRef} onSubmit={handleSubmit} noValidate aria-labelledby={headingId} className="scroll-mt-[110px]">
+    <form
+      ref={formRef}
+      onSubmit={handleSubmit}
+      noValidate
+      aria-labelledby={headingId}
+      data-analytics-form="Project brief"
+      data-analytics-location="contact page"
+      className="scroll-mt-[110px]"
+    >
       {selectedScope && (
         <div className="mb-6 flex flex-wrap items-center gap-2 rounded-xl border border-sage/25 bg-sage/8 px-4 py-3 text-sm text-paper/72">
           <span className="font-mono text-[10px] tracking-[0.1em] text-sage">SELECTED STARTING POINT</span>

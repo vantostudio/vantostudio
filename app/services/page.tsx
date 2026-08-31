@@ -16,7 +16,7 @@ export default function ServicesPage() {
       footerProps={{
         eyebrow: "NOT SURE WHICH?",
         headline: "Let’s figure it out together.",
-        buttonLabel: "Get a quote",
+        buttonLabel: "Discuss your website",
       }}
     >
       <PageHero
